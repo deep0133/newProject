@@ -1,13 +1,17 @@
-import { PropTypes } from "prop-types";
 import Input from "../components/Input";
 import { useState } from "react";
 import CheckBox from "../components/CheckBox";
+import SelectInput from "../components/SelectInput";
+import PropTypes from "prop-types";
+
+import { selectInputOptionValues } from "../utils/data";
 export default function AdvanceSearch() {
   const [inputFieldValue, setInputFieldValue] = useState({
     inputFieldOne: "",
     inputFieldTwo: "",
     inputFieldThree: "",
   });
+
   const [publicationValues, setPublicationValues] = useState({
     radioFieldOne: false,
     radioFieldTwo: false,
@@ -121,34 +125,6 @@ export default function AdvanceSearch() {
       value: "Japanese",
     },
   ]);
-  const optionValues_1 = [
-    {
-      id: 1,
-      value: "Anywhere",
-    },
-    {
-      id: 2,
-      value: "Local",
-    },
-    {
-      id: 3,
-      value: "Foreign",
-    },
-  ];
-  const optionValues_2 = [
-    {
-      id: 1,
-      value: "Anywhere",
-    },
-    {
-      id: 2,
-      value: "Local",
-    },
-    {
-      id: 3,
-      value: "Foreign",
-    },
-  ];
 
   const changeHandler = (e, type) => {
     if (type === "radioField") {
@@ -197,7 +173,7 @@ export default function AdvanceSearch() {
                 className='input_1 relative flex sm:flex-row flex-col
                sm:justify-center sm:items-center gap-3 sm:gap-5'>
                 <div className='select-input sm:order-first order-last relative py-2 flex text-white w-fit bg-blue-500 px-3 rounded-full hover:bg-blue-600'>
-                  <SelectInput items={optionValues_1} />
+                  <SelectInput items={selectInputOptionValues.selectInputOne} />
                 </div>
                 <Input
                   type={"text"}
@@ -205,7 +181,7 @@ export default function AdvanceSearch() {
                   changeHandler={(e) => changeHandler(e, "write-content")}
                   value={inputFieldValue.inputFieldOne}
                   required={true}
-                  placeholder={"Enter here..."}
+                  placeholder={"Search Articles,Journals,Videos etc"}
                   className={
                     "w-full pr-14 pl-4 py-2 border outline-none rounded-full"
                   }
@@ -221,7 +197,7 @@ export default function AdvanceSearch() {
 
               <div className='input_2 relative flex sm:flex-row flex-col sm:justify-center sm:items-center gap-3 sm:gap-5'>
                 <div className='select-input sm:order-first order-last relative py-2 flex justify-center items-center text-white w-fit bg-blue-500 px-3 rounded-full hover:bg-blue-600'>
-                  <SelectInput items={optionValues_2} />
+                  <SelectInput items={selectInputOptionValues.selectInputTwo} />
                 </div>
                 <Input
                   type={"text"}
@@ -311,7 +287,9 @@ export default function AdvanceSearch() {
                 </div>
                 <div className='select-date items-center w-full flex space-x-2'>
                   <div className='select-input relative py-2 flex border flex-grow-0 px-3 rounded-full'>
-                    <SelectInput items={optionValues_1} />
+                    <SelectInput
+                      items={selectInputOptionValues.selectInputOne}
+                    />
                   </div>
                 </div>
               </div>
@@ -461,27 +439,9 @@ const SelectionType = ({ items, typeName, checkBoxHandler }) => {
 };
 
 // Component :  Select Tag
-const SelectInput = ({ items }) => {
-  return (
-    <select className='outline-none w-full bg-inherit flex-grow-1 flex justify-center items-center text-sm hover:cursor-pointer'>
-      {items &&
-        items.map((item) => {
-          return (
-            <option className='bg-white text-black pr-3' key={item.id}>
-              {item.value}
-            </option>
-          );
-        })}
-    </select>
-  );
-};
 
 SelectionType.propTypes = {
   items: PropTypes.array.isRequired,
   typeName: PropTypes.string.isRequired,
   checkBoxHandler: PropTypes.func.isRequired,
-};
-
-SelectInput.propTypes = {
-  items: PropTypes.array.isRequired,
 };

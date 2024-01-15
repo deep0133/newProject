@@ -70,7 +70,7 @@ export default function Explore() {
     },
   ]);
 
-  const [mobileFilterCss, setMobileFilterCss] = useState("-translate-x-[100%]");
+  const [mobileFilterCss, setMobileFilterCss] = useState("-translate-x-[110%]");
 
   const [publicationData, setPublicationData] = useState([
     {
@@ -318,10 +318,10 @@ export default function Explore() {
   };
 
   const filterationHandler = () => {
-    if (mobileFilterCss.includes("-translate-x-[100%]")) {
+    if (mobileFilterCss.includes("-translate-x-[110%]")) {
       setMobileFilterCss("translate-x-[0%]");
     } else {
-      setMobileFilterCss("-translate-x-[100%]");
+      setMobileFilterCss("-translate-x-[110%]");
     }
   };
 
@@ -354,11 +354,11 @@ export default function Explore() {
       </div>
 
       {/* 2nd Component : Filteration */}
-      <div className='filteration-and-data w-[95%] dur sm:w-[90%] lg:w-[80%] max-w-[80rem] mx-auto grid grid-cols-12 gap-5 py-8'>
-        <div className='filter  col-span-full'>
-          <div className='flex gap-8'>
-            <h3 className='sm:min-w-52'>Applied Filter</h3>
-            <div className='flex gap-1 items-center'>
+      <div className='filteration-and-data w-[95%] duration-300 sm:w-[90%] lg:w-[80%] max-w-[80rem] mx-auto grid grid-cols-12 gap-5 py-8'>
+        <div className='filter col-span-full flex justify-between'>
+          <div className='flex sm:gap-8 items-center'>
+            <h3 className='text-nowrap font-medium'>Applied Filter</h3>
+            <div className=' gap-1  hidden sm:flex items-center'>
               <i>
                 <svg
                   width='13'
@@ -378,14 +378,7 @@ export default function Explore() {
               </p>
             </div>
           </div>
-        </div>
-        <div className='selected-filters flex items-start justify-between col-span-full '>
-          <div className='flex gap-5 flex-wrap'>
-            <SelectedFilter title={"Medical"} />
-            <SelectedFilter title={"Anatomy"} />
-            <SelectedFilter title={"Dental"} />
-          </div>
-          <div className='flex gap-2'>
+          <div className='flex gap-2 flex-shrink-0'>
             <i
               onClick={filterationHandler}
               className='border sm:hidden z-50 rounded-md px-2 flex justify-center items-center'>
@@ -414,7 +407,7 @@ export default function Explore() {
               </svg>
             </i>
 
-            <div className='sort rounded-md p-3 shrink-0 basis-36 border flex items-center gap-2 text-xs font-semibold'>
+            <div className='sort rounded-md p-3 shrink-0  border flex items-center gap-2 text-xs font-semibold'>
               <div className='lines flex flex-col space-y-[2px] justify-center items-center'>
                 <div className='line-1 w-3 border-black border-b-2 rounded-full'></div>
                 <div className='line-2 w-2 border-black border-b-2 rounded-full'></div>
@@ -427,9 +420,16 @@ export default function Explore() {
             </div>
           </div>
         </div>
+        <div className='selected-filters flex flex-wrap items-start justify-between col-span-full '>
+          <div className='flex gap-5 flex-wrap w-fit'>
+            <SelectedFilter title={"Medical"} />
+            <SelectedFilter title={"Anatomy"} />
+            <SelectedFilter title={"Dental"} />
+          </div>
+        </div>
         {/* ---------------------------Left-Side---------------------------  : Mobile : side bar issue ----Pending----*/}
         <div
-          className={`left filter  bg-white duration-300 ${mobileFilterCss} sm:relative absolute z-50  sm:translate-x-0 col-span-full sm:col-span-4 border rounded-md`}>
+          className={`left filter bg-white duration-300 ${mobileFilterCss} sm:relative absolute z-50 max-[343px]:top-[448px] top-[370px] sm:top-0  sm:translate-x-0 col-span-full sm:col-span-4 border rounded-md`}>
           <div className='publication-type mx-2 p-5 border-b'>
             <h3 className='text font-semibold pb-2'>Publication Type</h3>
             <div className='flex gap-2 mt-2 flex-col '>

@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <div className='bg-black relative text-white '>
-      <div className='flex justify-between w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem]  mx-auto'>
+      <div className='flex justify-between w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem] mx-auto'>
         <div className='left-side flex space-x-5 '>
           <div className='logo pr-3 border-r-2'>
             <img
