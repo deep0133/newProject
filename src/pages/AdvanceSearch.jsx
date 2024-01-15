@@ -1,10 +1,14 @@
 import Input from "../components/Input";
 import { useState } from "react";
-import CheckBox from "../components/CheckBox";
 import SelectInput from "../components/SelectInput";
-import PropTypes from "prop-types";
 
 import { selectInputOptionValues } from "../utils/data";
+import SelectionType from "../components/AdvanceSearchComponent/SelectionType";
+
+import crossIcon from "../assets/svg/cross.svg";
+import searchIcon from "../assets/svg/search-normal.svg";
+import lampChargeIcon from "../assets/svg/lamp-charge.svg";
+
 export default function AdvanceSearch() {
   const [inputFieldValue, setInputFieldValue] = useState({
     inputFieldOne: "",
@@ -187,11 +191,7 @@ export default function AdvanceSearch() {
                   }
                 />
                 <div className='icon absolute right-1 top-1'>
-                  <img
-                    src='../src/assets/images/cross.svg'
-                    alt=''
-                    className='object-contain'
-                  />
+                  <img src={crossIcon} alt='' className='object-contain' />
                 </div>
               </div>
 
@@ -211,11 +211,7 @@ export default function AdvanceSearch() {
                   }
                 />
                 <div className='icon absolute right-1 rounded-full bg-blue-600 p-2 '>
-                  <img
-                    src='../src/assets/images/search-normal.svg'
-                    alt=''
-                    className='object-contain'
-                  />
+                  <img src={searchIcon} alt='' className='object-contain' />
                 </div>
               </div>
             </div>
@@ -237,10 +233,7 @@ export default function AdvanceSearch() {
                   }
                 />
                 <div className='icon absolute rounded-full bg-blue-600 p-2 right-1'>
-                  <img
-                    src='../src/assets/images/search-normal.svg'
-                    className='object-contain'
-                  />
+                  <img src={searchIcon} className='object-contain' />
                 </div>
               </div>
             </div>
@@ -361,11 +354,7 @@ export default function AdvanceSearch() {
           <div className='rounded-lg pb-5 overflow-hidden border-blue-400 border'>
             <div className='title flex justify-between p-4 bg-gray-100'>
               <h2 className='font-bold '>How To Search</h2>
-              <img
-                src='../src/assets/images/lamp-charge.svg'
-                alt=''
-                className='icon'
-              />
+              <img src={lampChargeIcon} alt='' className='icon' />
             </div>
             <div className='content text-xs space-y-4 px-3'>
               <p></p>
@@ -397,51 +386,3 @@ export default function AdvanceSearch() {
     </div>
   );
 }
-
-// Component : Selection Type :
-const SelectionType = ({ items, typeName, checkBoxHandler }) => {
-  const onchangeCheckbox = (id) => {
-    checkBoxHandler(id, typeName, items);
-  };
-  return (
-    <div className=''>
-      <div className='flex justify-between border px-3 py-2 rounded-md'>
-        <p>{typeName}</p>
-        <div className='all flex justify-center items-center space-x-1'>
-          <CheckBox
-            id={0}
-            checkBoxHandler={onchangeCheckbox}
-            checked={items[0].checked}
-          />
-          <label>All</label>
-        </div>
-      </div>
-      <div className='border my-2 rounded-md '>
-        {items.map((item) => {
-          return (
-            <div key={item.id} className='flex justify-between px-3 py-2'>
-              {item.id !== 0 && (
-                <div className='all flex justify-center items-center space-x-2'>
-                  <CheckBox
-                    id={item.id}
-                    checkBoxHandler={onchangeCheckbox}
-                    checked={item.status}
-                  />
-                  <label>{item.value}</label>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-// Component :  Select Tag
-
-SelectionType.propTypes = {
-  items: PropTypes.array.isRequired,
-  typeName: PropTypes.string.isRequired,
-  checkBoxHandler: PropTypes.func.isRequired,
-};

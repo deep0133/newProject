@@ -2,11 +2,18 @@ import { useState } from "react";
 import Input from "../components/Input";
 import SelectInput from "../components/SelectInput";
 import { selectInputOptionValues } from "../utils/data";
-import blueArrow from "../assets/images/blue_arrow.svg";
+
+import homeBackgroundImage from "../assets/images/home-background.png";
+
+import blueArrowIcon from "../assets/svg/blue_arrow.svg";
+import searchIcon from "../assets/svg/search-normal.svg";
+import crossIcon from "../assets/svg/cross.svg";
+
 import GeneralData from "../components/HomePageComponent/GeneralData";
 import MedicalCard from "../components/HomePageComponent/MedicalCard";
 import ResourceCard from "../components/HomePageComponent/ResourceCard";
 import CategoryCard from "../components/HomePageComponent/CategoryCard";
+import RecentlyCard from "../components/HomePageComponent/RecentlyCard";
 import MostViewedCard from "../components/HomePageComponent/MostViewedCard";
 
 export default function Home() {
@@ -119,21 +126,21 @@ export default function Home() {
   const [recentlyCardData, setRecentlyCardData] = useState([
     {
       id: 1,
-      imageLink: "../src/assets/images/jpg/home-background.png",
+      imageLink: homeBackgroundImage,
       title:
         "Children of AI: A Protocol for Managing the Born-Digital Ephemera Spawned by Generative AI Language Models.",
       date: "Added on: December 2023",
     },
     {
       id: 2,
-      imageLink: "../src/assets/images/jpg/home-background.png",
+      imageLink: homeBackgroundImage,
       title:
         "Pharmaceutical and non-pharmaceutical interventions for controlling the COVID-19 pandemic",
       date: "Added on: July 2022",
     },
     {
       id: 3,
-      imageLink: "../src/assets/images/jpg/home-background.png",
+      imageLink: homeBackgroundImage,
       title:
         "Neue Wege der standardkonformen Gesamtprozesssteuerung in der Life Science Automation",
       date: "Added on: July 2022",
@@ -228,16 +235,12 @@ export default function Home() {
             <div className='icon absolute right-1 top-1'>
               {homeSearchInput.length > 0 ? (
                 <img
-                  src='../src/assets/images/search-normal.svg'
+                  src={searchIcon}
                   alt=''
                   className='object-cover w-8 rounded-full p-1 bg-blue-500'
                 />
               ) : (
-                <img
-                  src='../src/assets/images/cross.svg'
-                  alt=''
-                  className='object-contain'
-                />
+                <img src={crossIcon} alt='' className='object-contain' />
               )}
               <button className='outline-none underline absolute text-white text-nowrap pt-5 right-4'>
                 Advance Search
@@ -262,7 +265,7 @@ export default function Home() {
         </div>
         <div className='medical-menu flex gap-5 place-items-end'>
           <img
-            src={blueArrow}
+            src={blueArrowIcon}
             alt='previous'
             className='rotate-180 sm:hidden'
           />
@@ -272,7 +275,7 @@ export default function Home() {
               onClickHandler={selectItemHandler}
             />
           </div>
-          <img src={blueArrow} alt='next' className='sm:hidden' />
+          <img src={blueArrowIcon} alt='next' className='sm:hidden' />
         </div>
       </section>
 

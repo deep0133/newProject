@@ -1,7 +1,15 @@
 import { useState } from "react";
-import searchIcon from "../assets/images/search-normal.svg";
-import groupIcon from "../assets/images/group.svg";
-import logoutIcon from "../assets/images/logout.svg";
+import searchIcon from "../assets/svg/search-normal.svg";
+import groupIcon from "../assets/svg/group.svg";
+import settingIcon from "../assets/svg/settings.svg";
+import layerIcon from "../assets/svg/layers.svg";
+import uploadIcon from "../assets/svg/upload.svg";
+import helpCircleIcon from "../assets/svg/help-circle.svg";
+import logoutIcon from "../assets/svg/logout.svg";
+
+import logo from "../assets/images/logo.png";
+import coin from "../assets/images/coin.png";
+
 function Navbar() {
   const [menu, setMenu] = useState(false);
 
@@ -14,18 +22,10 @@ function Navbar() {
       <div className='flex justify-between w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem] mx-auto'>
         <div className='left-side flex space-x-5 '>
           <div className='logo pr-3 border-r-2'>
-            <img
-              src='../src/assets/images/image-3.png'
-              className='w-[6rem] p-2'
-              alt=''
-            />
+            <img src={logo} className='w-[6rem] p-2' alt='logo' />
           </div>
           <div className='all-india-inst gap-2 items-center hidden md:flex'>
-            <img
-              src='../src/assets/images/image-10.png'
-              className=' w-8'
-              alt=''
-            />
+            <img src={coin} className=' w-8' alt='' />
             <p className='max-w-[10rem] text-xs'>
               All India Institute of Medical Science , Nagpur
             </p>
@@ -54,24 +54,24 @@ function Navbar() {
 
 const menuItem = [
   {
-    icon_link: "../src/assets/images/settings.svg",
+    icon_link: settingIcon,
     title: "Choose Databases",
   },
   {
-    icon_link: "../src/assets/images/layers.svg",
+    icon_link: layerIcon,
     title: "Brwoser Publications",
   },
   {
-    icon_link: "../src/assets/images/upload.svg",
+    icon_link: uploadIcon,
     title: "Upload your Article",
   },
 
   {
-    icon_link: "../src/assets/images/help-circle.svg",
+    icon_link: helpCircleIcon,
     title: "Help and Support",
   },
   {
-    icon_link: "../src/assets/images/logout.svg",
+    icon_link: logoutIcon,
     title: "Logout",
   },
 ];
@@ -82,7 +82,7 @@ const MenuDropDown = () => {
       <div className='menu-dropdown-conten relative flex flex-col p-3 gap-3'>
         <div className='profile flex border-b pb-2'>
           <img
-            src='../src/assets/images/image-10.png'
+            src='../src/assets/svg/image-10.png'
             className='object-cover flex-shrink-0 mr-3'
             alt=''
           />

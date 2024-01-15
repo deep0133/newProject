@@ -4,7 +4,7 @@
 
 
 .home-background-image {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.59), rgba(1, 0, 146, 0.59) 109.83%), url("./assets/images/jpg/home-background.png");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.59), rgba(1, 0, 146, 0.59) 109.83%), url("./assets/images/jpg_png/home-background.png");
     background-position: center;
     background-size: 100% 100%;
     background-attachment: fixed;
