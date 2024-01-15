@@ -15,9 +15,10 @@ function Input({
     name,
     onChange,
     className,
-    required,
     placeholder,
-    ...(type === "radioField" ? { checked } : { value }),
+    ...(type === ("radioField" || "checkBox")
+      ? { checked }
+      : { value, required }),
   };
 
   return <input {...inputProps} />;

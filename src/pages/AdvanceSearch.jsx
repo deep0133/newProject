@@ -1,6 +1,7 @@
 import { PropTypes } from "prop-types";
 import Input from "../components/Input";
 import { useState } from "react";
+import CheckBox from "../components/CheckBox";
 export default function AdvanceSearch() {
   const [inputFieldValue, setInputFieldValue] = useState({
     inputFieldOne: "",
@@ -149,7 +150,6 @@ export default function AdvanceSearch() {
     },
   ];
 
-  //   --------------------------Pending--------------------------
   const changeHandler = (e, type) => {
     if (type === "radioField") {
       setPublicationValues({
@@ -169,7 +169,6 @@ export default function AdvanceSearch() {
     }
   };
 
-  // --------------------------Pending--------------------------
   const checkBoxHandler = (id, selectionType, arr) => {
     const updatedSelectionType = arr.map((item) => {
       if (item.id === id) item.status = !item.status;
@@ -360,7 +359,7 @@ export default function AdvanceSearch() {
               Select Types:
             </p>
 
-            <div className='grid sm:grid-cols-3 grid-rows-1 grid-flow-col  gap-5'>
+            <div className='grid sm:grid-cols-3  gap-5'>
               <SelectionType
                 items={resourceTypes}
                 typeName={"Resource Types"}
@@ -477,19 +476,6 @@ const SelectInput = ({ items }) => {
   );
 };
 
-// Component : CheckBox Tag
-const CheckBox = ({ id, checked, name, checkBoxHandler }) => {
-  return (
-    <input
-      type='checkbox'
-      name={name}
-      onChange={() => checkBoxHandler(id)}
-      checked={checked}
-      className={"accent-blue  outline-none border-none ring-0"}
-    />
-  );
-};
-
 SelectionType.propTypes = {
   items: PropTypes.array.isRequired,
   typeName: PropTypes.string.isRequired,
@@ -498,11 +484,4 @@ SelectionType.propTypes = {
 
 SelectInput.propTypes = {
   items: PropTypes.array.isRequired,
-};
-
-CheckBox.propTypes = {
-  id: PropTypes.number,
-  checked: PropTypes.bool,
-  name: PropTypes.string,
-  checkBoxHandler: PropTypes.func,
 };
