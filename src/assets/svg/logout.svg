@@ -1,7 +1,7 @@
-<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="18" height="18" viewBox="0 0 18 18" currentColor="white" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="vuesax/twotone/logout">
 <g id="logout">
-<path id="Vector" d="M6.35254 5.83099C6.5738 3.26149 7.89424 2.21228 10.7849 2.21228H10.8777C14.0682 2.21228 15.3458 3.48989 15.3458 6.68036V11.334C15.3458 14.5245 14.0682 15.8021 10.8777 15.8021H10.7849C7.91565 15.8021 6.59521 14.7671 6.35968 12.2405" stroke="currentColor" style="stroke:gray;stroke-opacity:1;" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector" d="M6.35254 5.83099C6.5738 3.26149 7.89424 2.21228 10.7849 2.21228H10.8777C14.0682 2.21228 15.3458 3.48989 15.3458 6.68036V11.334C15.3458 14.5245 14.0682 15.8021 10.8777 15.8021H10.7849C7.91565 15.8021 6.59521 14.7671 6.35968 12.2405" stroke="white" style="stroke:gray;stroke-opacity:1;" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <g id="Group 656">
 <path id="Vector_2" d="M10.7055 9H2.58301" stroke="#FA2A2A" style="stroke:#FA2A2A;stroke:color(display-p3 0.9808 0.1659 0.1659);stroke-opacity:1;" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="Vector_3" d="M4.17524 6.60925L1.78418 9.00032L4.17524 11.3914" stroke="#FA2A2A" style="stroke:#FA2A2A;stroke:color(display-p3 0.9808 0.1659 0.1659);stroke-opacity:1;" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

@@ -4,11 +4,12 @@ const MostViewedCard = ({ mostViewedCardData }) => {
     return (
       <div
         key={item.id}
-        className='p-3 flex border-b-2 justify-between text-sm'>
-        <p className='font-medium  line-clamp-1 text-wrap border-b-2 border-transparent'>
+        className="py-3 md:ml-2  mr-2 md:mr-0 group flex border-b justify-between font-dm-sans font-medium"
+      >
+        <p className="font-medium group-hover:text-blue-darkO6 group-hover:underline line-clamp-1 text-wrap border-b-2 text-15px  border-transparent text-blue-darkBlue">
           {item.title}
         </p>
-        <sapn className='font-semibold flex justify-center items-center flex-shrink-0 border-2 rounded-full py-1 px-3 text-xs bg-gray-100'>
+        <sapn className="flex justify-center h-[30px] px-[16px] py-[10px] items-center flex-shrink-0 border border-blue-darkO1 bg-blue-ultramarineBlueO1 rounded-[21px] text-xSmall font-medium leading-5">
           {item.tag}
         </sapn>
       </div>

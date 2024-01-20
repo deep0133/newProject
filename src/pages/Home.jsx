@@ -8,6 +8,9 @@ import homeBackgroundImage from "../assets/images/home-background.png";
 import blueArrowIcon from "../assets/svg/blue_arrow.svg";
 import searchIcon from "../assets/svg/search-normal.svg";
 import crossIcon from "../assets/svg/cross.svg";
+import starIcon from "../assets/svg/star.svg";
+import downArrowIcon from "../assets/svg/downArrow.svg";
+import recentlyAddedIcon from "../assets/svg/recentlyAddedBag.svg";
 
 import GeneralData from "../components/HomePageComponent/GeneralData";
 import MedicalCard from "../components/HomePageComponent/MedicalCard";
@@ -145,6 +148,27 @@ export default function Home() {
         "Neue Wege der standardkonformen Gesamtprozesssteuerung in der Life Science Automation",
       date: "Added on: July 2022",
     },
+    {
+      id: 4,
+      imageLink: homeBackgroundImage,
+      title:
+        "Neue Wege der standardkonformen Gesamtprozesssteuerung in der Life Science Automation",
+      date: "Added on: July 2022",
+    },
+    {
+      id: 5,
+      imageLink: homeBackgroundImage,
+      title:
+        "Neue Wege der standardkonformen Gesamtprozesssteuerung in der Life Science Automation",
+      date: "Added on: July 2022",
+    },
+    {
+      id: 6,
+      imageLink: homeBackgroundImage,
+      title:
+        "Neue Wege der standardkonformen Gesamtprozesssteuerung in der Life Science Automation",
+      date: "Added on: July 2022",
+    },
   ]);
 
   const [mostViewedCardData, setMostViewedCardData] = useState([
@@ -206,183 +230,135 @@ export default function Home() {
   };
 
   return (
-    <section className='min-h-[100lvh] w-full'>
-      <section className='hero relative min-h-[100lvh] w-full flex flex-col justify-center items-center home-background-image'>
-        <div className='sm:w-max -mt-64 sm:-mt-20 w-[95%]'>
-          <h2 className='text-3xl text-white font-bold text-center'>
-            You Have subscribed DVL Medical
+    <section className="w-full">
+      <section className="hero home-background-image relative flex  w-full flex-col items-center md:justify-center">
+        <div className="mt-[150px] lg:pb-0 pb-10  mx-[5%] lg:mx-0">
+          <h2 className="font-feature-setting text-center sm:w-auto font-dm-sans text-large font-bold leading-normal tracking-normal text-home-hero-color ">
+            You have subscribed DVL Medical
           </h2>
-          <p className='text-xs text-gray-300 font-medium text-center mt-2 mb-5'>
-            Here in the database youll get each and every journal for any
+          <p className="text-text font-feature-setting pb-5 text-center font-dm-sans text-[14px] font-[400] leading-8 text-home-hero-color">
+            Here in the database you will get each and every journal for any
             subject field you need
           </p>
-          <div
-            className='relative flex sm:flex-row flex-col
-               sm:justify-center sm:items-center gap-3 sm:gap-5'>
-            <div className='select-input sm:order-first order-last relative py-2 flex text-white w-fit bg-blue-500 px-3 rounded-full hover:bg-blue-600'>
+          <div className="relative flex md:mx-auto flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-5">
+            <div className="select-input  h-[42px] relative order-last flex flex-shrink-0 rounded-[34px] bg-search-icon-background px-3 py-2 text-white sm:order-first w-[127px]">
               <SelectInput items={selectInputOptionValues.selectInputOne} />
             </div>
             <Input
-              type={"text"}
-              name='homeSelectBtn'
+              type="text"
+              name="homeSelectBtn"
               onChange={changeHandler}
               value={homeSearchInput}
               placeholder={"Search Articles,Journals,Videos etc"}
-              className={
-                "w-full pr-14 pl-4 py-2 border outline-none rounded-full"
-              }
+              className="h-[42px] flex-grow lg:w-[676px] rounded-full border py-2 pl-5 pr-14 outline-none"
             />
-            <div className='icon absolute right-1 top-1'>
+            <div className="icon absolute right-1 top-1">
               {homeSearchInput.length > 0 ? (
-                <img
-                  src={searchIcon}
-                  alt=''
-                  className='object-cover w-8 rounded-full p-1 bg-blue-500'
-                />
+                <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-search-icon-background">
+                  <img src={searchIcon} alt="" className="object-cover" />
+                </div>
               ) : (
-                <img src={crossIcon} alt='' className='object-contain' />
+                <img src={crossIcon} alt="" className="object-contain" />
               )}
-              <button className='outline-none underline absolute text-white text-nowrap pt-5 right-4'>
+              <button
+                className="
+              font-feature-setting absolute right-4 text-nowrap pt-4 font-dm-sans text-medium font-medium  leading-8 text-home-hero-color underline outline-none"
+              >
                 Advance Search
               </button>
             </div>
           </div>
         </div>
-        <div className='trust-us  w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem] mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5  absolute max-[370px]:bottom-2 bottom-20 text-white '>
+        <div className="responsiveWidth py-10 sm:pt-20 lg:pt-24 trust-us sticky mx-auto grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 ">
           <GeneralData />
         </div>
       </section>
 
       {/* Browse All Resource */}
-      <section className=' border-2 border-b-0 mx-3 mt-3 rounded-t-lg overflow-hidden bg-gray-100 flex flex-col py-14 justify-center items-center'>
-        <div className='flex flex-col'>
-          <h2 className='text-2xl font-bold text-center mb-1'>
+      <section className="mx-3 mt-3 flex flex-col items-center justify-center overflow-hidden py-7 sm:py-14 rounded-t-[9px] border border-b-0 border-blue-darkO1 bg-blue-clearO7">
+        <div className="flex flex-col text-blue-deepCove font-feature-setting font-dm-sans">
+          <h2 className="mb-1 text-center text-30px font-bold tracking-[-1px]  ">
             Browse all resources by discipline
           </h2>
-          <p className='text-xs text-gray-600 font-medium text-center mt-2 mb-5'>
+          <p className="mb-5 mt-2 text-center text-16px  font-normal leading-6">
             Select your subscribed Databases and find resources
           </p>
         </div>
-        <div className='medical-menu flex gap-5 place-items-end'>
+
+        <div className="medical-menu flex place-items-end gap-5 sm:responsiveWidth justify-center">
           <img
             src={blueArrowIcon}
-            alt='previous'
-            className='rotate-180 sm:hidden'
+            alt="previous"
+            className="rotate-180 lg:hidden"
           />
-          <div className='flex gap-2 no-scrollbar mt-5 overflow-auto scroll-smooth sm:w-full w-[120px] '>
+          <div className="no-scrollbar mt-5 flex w-[137px] lg:w-fit gap-2 overflow-auto scroll-smooth ">
             <MedicalCard
               medicalData={medicalData}
               onClickHandler={selectItemHandler}
             />
           </div>
-          <img src={blueArrowIcon} alt='next' className='sm:hidden' />
+          <img src={blueArrowIcon} alt="next" className="lg:hidden" />
         </div>
       </section>
 
       {/* Category and Resource */}
-      <section className='bg-gray-100 mx-3  border-2 py-1 border-t-0 rounded-b-lg '>
-        <div className='w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem] gap-5 mb-8 mx-auto grid grid-cols-8'>
-          <div className='col-span-full font-semibold flex place-content-end gap-3'>
-            <button className='px-4 hover:bg-gray-200 py-2 flex items-center text-blue-600 border-2 rounded-md flex-shrink-0 justify-center'>
-              <p>ResourceType</p>
-              <i>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='20'
-                  height='20'
-                  viewBox='0 0 20 20'
-                  fill='none'>
-                  <path
-                    d='M5 7.5L10 12.5L15 7.5'
-                    stroke='#0A1847'
-                    //   style='stroke:#0A1847;stroke:color(display-p3 0.0392 0.0941 0.2784);stroke-opacity:1;'
-                    strokeWidth='1.66667'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                </svg>
-              </i>
+      <section className="mx-1 sm:mx-3 rounded-b-[9px]  border border-t-0 border-blue-darkO1 bg-blue-clearO7 py-1 ">
+        <div className="mx-auto mb-8 grid responsiveWidth grid-cols-9 gap-5">
+          <div className="col-span-full flex place-content-end gap-3 text-blue-deepCove font-dm-sans text-medium font-medium leading-6">
+            <button className="flex flex-shrink-0 items-center justify-center px-[14px] gap-2 py-[10px] border rounded-lg border-blue-clearO1 w-[154px] h-[40px] bg-blue-clearO1">
+              ResourceType
+              <img
+                src={downArrowIcon}
+                className="w-5 h-5 object-cover brightness-0"
+              />
             </button>
-            <button className='px-4 py-2 flex items-center text-blue-600 border-2 rounded-md flex-shrink-0'>
+            <button className="flex flex-shrink-0 items-center rounded-lg border border-blue-clearO2 bg-light-whiteO4 px-4 py-2 ">
               Show All
             </button>
           </div>
-          <div className='left col-span-full md:col-span-3 space-y-2'>
+          <div className="left col-span-full space-y-2 md:col-span-3">
             <CategoryCard
               categoryData={categoryData}
               onClickHandler={selectItemHandler}
             />
           </div>
-          <div className='right col-span-full md:col-span-5'>
-            <div className='grid  sm:grid-cols-2 md:grid-cols-3 gap-3'>
+          <div className="flex md:col-span-1 col-span-full">
+            <p className=" border border-dashed border-black/50 w-full md:w-0 my-5 md:my-0 md:h-full mx-auto"></p>
+          </div>
+          <div className="right col-span-full md:col-span-5">
+            <div className="grid gap-3 sm:grid-cols-2  lg:grid-cols-3">
               <ResourceCard resourceCardData={resourceCardData} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className='mx-3 border-2 rounded-lg my-3 grid'>
-        <div className='w-[95%] sm:w-[90%] lg:w-[80%] max-w-[80rem] grid grid-cols-8 gap-7 mx-auto'>
-          <div className='left-recently col-span-full md:col-span-5 border-b-2 md:border-b-0 md:border-r-2 py-5'>
-            <h2 className='border-b-2 mb-6 border-gray-600 w-fit px-3 py-2 font-semibold text-xl flex gap-1 items-baseline'>
-              <i>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='20'
-                  height='20'
-                  viewBox='0 0 24 24'
-                  fill='none'>
-                  <path
-                    d='M16.7502 3.56V2C16.7502 1.59 16.4102 1.25 16.0002 1.25C15.5902 1.25 15.2502 1.59 15.2502 2V3.5H8.75023V2C8.75023 1.59 8.41023 1.25 8.00023 1.25C7.59023 1.25 7.25023 1.59 7.25023 2V3.56C4.55023 3.81 3.24023 5.42 3.04023 7.81C3.02023 8.1 3.26023 8.34 3.54023 8.34H20.4602C20.7502 8.34 20.9902 8.09 20.9602 7.81C20.7602 5.42 19.4502 3.81 16.7502 3.56Z'
-                    fill='#0A1847'
-                  />
-                  <path
-                    d='M19 15C16.79 15 15 16.79 15 19C15 19.75 15.21 20.46 15.58 21.06C16.27 22.22 17.54 23 19 23C20.46 23 21.73 22.22 22.42 21.06C22.79 20.46 23 19.75 23 19C23 16.79 21.21 15 19 15ZM21.07 18.57L18.94 20.54C18.8 20.67 18.61 20.74 18.43 20.74C18.24 20.74 18.05 20.67 17.9 20.52L16.91 19.53C16.62 19.24 16.62 18.76 16.91 18.47C17.2 18.18 17.68 18.18 17.97 18.47L18.45 18.95L20.05 17.47C20.35 17.19 20.83 17.21 21.11 17.51C21.39 17.81 21.37 18.28 21.07 18.57Z'
-                    fill='#0A1847'
-                  />
-                  <path
-                    d='M20 9.84003H4C3.45 9.84003 3 10.29 3 10.84V17C3 20 4.5 22 8 22H12.93C13.62 22 14.1 21.33 13.88 20.68C13.68 20.1 13.51 19.46 13.51 19C13.51 15.97 15.98 13.5 19.01 13.5C19.3 13.5 19.59 13.52 19.87 13.57C20.47 13.66 21.01 13.19 21.01 12.59V10.85C21 10.29 20.55 9.84003 20 9.84003ZM9.21 18.21C9.02 18.39 8.76 18.5 8.5 18.5C8.24 18.5 7.98 18.39 7.79 18.21C7.61 18.02 7.5 17.76 7.5 17.5C7.5 17.24 7.61 16.98 7.79 16.79C7.89 16.7 7.99 16.63 8.12 16.58C8.49 16.42 8.93 16.51 9.21 16.79C9.39 16.98 9.5 17.24 9.5 17.5C9.5 17.76 9.39 18.02 9.21 18.21ZM9.21 14.71C9.16 14.75 9.11 14.79 9.06 14.83C9 14.87 8.94 14.9 8.88 14.92C8.82 14.95 8.76 14.97 8.7 14.98C8.63 14.99 8.56 15 8.5 15C8.24 15 7.98 14.89 7.79 14.71C7.61 14.52 7.5 14.26 7.5 14C7.5 13.74 7.61 13.48 7.79 13.29C8.02 13.06 8.37 12.95 8.7 13.02C8.76 13.03 8.82 13.05 8.88 13.08C8.94 13.1 9 13.13 9.06 13.17C9.11 13.21 9.16 13.25 9.21 13.29C9.39 13.48 9.5 13.74 9.5 14C9.5 14.26 9.39 14.52 9.21 14.71ZM12.71 14.71C12.52 14.89 12.26 15 12 15C11.74 15 11.48 14.89 11.29 14.71C11.11 14.52 11 14.26 11 14C11 13.74 11.11 13.48 11.29 13.29C11.67 12.92 12.34 12.92 12.71 13.29C12.89 13.48 13 13.74 13 14C13 14.26 12.89 14.52 12.71 14.71Z'
-                    fill='#0A1847'
-                  />
-                </svg>
-              </i>
-              <p> Recently Added Resources</p>
-            </h2>
-            <div className='recently-container'>
-              <RecentlyCard recentlyCardData={recentlyCardData} />
+      <section className="mx-1 sm:mx-3 my-3 grid md:grid-cols-12 gap-3">
+        <div className="left col-span-full md:col-span-7 grid grid-cols-7 border bg-blue-clearO7 border-blue-darkO1 rounded-[9px]">
+          <div className="flex col-span-full md:col-span-7 md:col-start-2  w-[95%] sm:w-[95%] mx-auto md:w-auto">
+            <div className="left-recently flex-grow pt-5 px-2 md:p-5 md:-ml-10">
+              <h2 className="flex relative w-fit items-baseline gap-2 px-1 text-blue-deepCove font-feature-settings font-dm-sans text-24px font-bold tracking-[-1px] py-2">
+                <img src={recentlyAddedIcon} alt="" />
+                <p className=""> Recently Added Resources</p>
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-deepCove"></div>
+              </h2>
+              <div className="recently-container max-h-[470px] space-y-4 mt-10 mb-5 custom-scroll-bar overflow-y-auto overflow-x-hidden ">
+                <RecentlyCard recentlyCardData={recentlyCardData} />
+              </div>
             </div>
           </div>
-          <div className='right-recently col-span-full md:col-span-3 py-5'>
-            <h2 className='border-b-2 mb-6 border-gray-600 w-fit px-3 py-2 font-semibold text-xl flex gap-1 items-baseline'>
-              <i>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='20'
-                  height='20'
-                  viewBox='0 0 24 24'
-                  fill='none'>
-                  <path
-                    d='M15.3899 5.20997L16.7999 8.02997C16.9899 8.41997 17.4999 8.78997 17.9299 8.86997L20.4799 9.28997C22.1099 9.55997 22.4899 10.74 21.3199 11.92L19.3299 13.91C18.9999 14.24 18.8099 14.89 18.9199 15.36L19.4899 17.82C19.9399 19.76 18.8999 20.52 17.1899 19.5L14.7999 18.08C14.3699 17.82 13.6499 17.82 13.2199 18.08L10.8299 19.5C9.11994 20.51 8.07994 19.76 8.52994 17.82L9.09994 15.36C9.18994 14.88 8.99994 14.23 8.66994 13.9L6.67994 11.91C5.50994 10.74 5.88994 9.55997 7.51994 9.27997L10.0699 8.85997C10.4999 8.78997 11.0099 8.40997 11.1999 8.01997L12.6099 5.19997C13.3799 3.67997 14.6199 3.67997 15.3899 5.20997Z'
-                    fill='#00035C'
-                  />
-                  <path
-                    d='M8 5.75H2C1.59 5.75 1.25 5.41 1.25 5C1.25 4.59 1.59 4.25 2 4.25H8C8.41 4.25 8.75 4.59 8.75 5C8.75 5.41 8.41 5.75 8 5.75Z'
-                    fill='#00035C'
-                  />
-                  <path
-                    d='M5 19.75H2C1.59 19.75 1.25 19.41 1.25 19C1.25 18.59 1.59 18.25 2 18.25H5C5.41 18.25 5.75 18.59 5.75 19C5.75 19.41 5.41 19.75 5 19.75Z'
-                    fill='#00035C'
-                  />
-                  <path
-                    d='M3 12.75H2C1.59 12.75 1.25 12.41 1.25 12C1.25 11.59 1.59 11.25 2 11.25H3C3.41 11.25 3.75 11.59 3.75 12C3.75 12.41 3.41 12.75 3 12.75Z'
-                    fill='#00035C'
-                  />
-                </svg>
-              </i>
-              <p> Most Viewed</p>
-            </h2>
-            <div className='most-viewed-container'>
-              <MostViewedCard mostViewedCardData={mostViewedCardData} />
+        </div>
+        <div className="right col-span-full md:col-span-5 grid md:grid-cols-5 border bg-blue-clearO7 border-blue-darkO1 rounded-[9px]">
+          <div className="col-span-full md:col-span-4 py-5 md:pl-5 md:mr-[-19px] lg:mr-0 w-[95%] sm:w-[90%] mx-auto md:w-full">
+            <div className="right-recently md:max-w-[474px] flex-grow">
+              <h2 className="flex mb-6 relative w-fit items-baseline gap-2 px-1 text-blue-deepCove font-feature-settings font-dm-sans text-24px font-bold tracking-[-1px] py-2">
+                <img src={starIcon} alt="" />
+                <p> Most Viewed</p>
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-deepCove"></div>
+              </h2>
+              <div className="most-viewed-container">
+                <MostViewedCard mostViewedCardData={mostViewedCardData} />
+              </div>
             </div>
           </div>
         </div>

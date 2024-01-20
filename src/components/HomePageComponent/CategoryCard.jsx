@@ -6,9 +6,12 @@ const CategoryCard = ({ categoryData, onClickHandler }) => {
       <div
         key={item.id}
         onClick={() => onClickHandler(item.id, "category")}
-        className={`px-5 hover:cursor-pointer duration-300 ease-linear py-2 border-2  ${
-          item.selected ? "bg-blue-600  text-white" : "bg-gray-200 text-black"
-        } flex justify-between items-center rounded-full`}>
+        className={`px-5 hover:cursor-pointer duration-300 ease-linear border flex justify-between items-center rounded-[34px] h-[42px] border-blue-darkO1 font-feature-settings font-dm-sans text-medium font-medium leading-8 ${
+          item.selected
+            ? "bg-blue-azul  text-white"
+            : "bg-blue-azulO7 text-blue-deepCove"
+        } `}
+      >
         <h3>{item.value}</h3>
         <span>{item.number}</span>
       </div>

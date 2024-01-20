@@ -6,13 +6,17 @@ const MedicalCard = ({ medicalData, onClickHandler }) => {
       <div
         key={item.id}
         onClick={() => onClickHandler(item.id, "medical")}
-        className={`medical-card px-1 w-[120px] hover:cursor-pointer duration-300 ease-in ${
-          item.selected ? "bg-blue-700 text-white" : "text-blue-700 bg-white"
-        } flex-shrink-0 pt-1 border rounded-md`}>
-        <h3
-          className={`text-center px-2 font-bold pb-1 border-b-[3px] border-blue-500  `}>
+        className={`medical-card relative w-[137px] h-[49px] flex hover:cursor-pointer 
+        duration-300 ease-in flex-shrink-0 gap-[10px] rounded-[9px] justify-center items-center border border-blue-clearO2 font-feature-setting font-dm-sans ${
+          item.selected
+            ? "bg-blue-persianBlue text-white"
+            : "text-blue-persianBlue  bg-inherit"
+        }  `}
+      >
+        <h3 className="text-center font-bold text-19px leading-8">
           {item.value}
         </h3>
+        <div className="w-[5px] border-none h-[120px] absolute shadow-[0px_4px_14px_ 0px_rgba(0,_0,_0,_0.09)] left-[65px] bottom-[-58.5px] rotate-90 flex-shrink-0 rounded-md bg-blue-soft"></div>
       </div>
     );
   });

@@ -24,8 +24,12 @@ const GeneralData = () => {
   const HTML = data.map((item) => {
     return (
       <div key={item.id} className='card gap-1 sm:gap-2 flex flex-col'>
-        <h2 className='text-xl font-bold'>{item.title}</h2>
-        <p className='text-xs'>{item.desc}</p>
+        <h2 className='text-semilarge text-navbar-text-color font-feature-setting font-dm-sans font-bold'>
+          {item.title}
+        </h2>
+        <p className='text-navbar-text-color font-feature-setting font-dm-sans text-medium font-medium leading-normal tracking-[-1px] '>
+          {item.desc}
+        </p>
       </div>
     );
   });

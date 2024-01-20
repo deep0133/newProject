@@ -1,0 +1,44 @@
+:root {
+    /* Colors */
+    --Gray-50: #F9FAFB;
+    --Gray-100: #F2F4F7;
+    --Gray-500: #667085;
+    --Gray-700: #344054;
+    --Success-500: #12B76A;
+    --White: #FFFFFF;
+
+    --Navbar-Background: rgba(105, 105, 105, 0.03);
+    --Date-Border: rgba(255, 255, 255, 0.10);
+    --Date-Background: rgba(1, 3, 58, 0.32);
+    --Menu-Background: var(--Gray-50);
+    --Menu-Text: #314155;
+    --Menu-Hover-Background: #F8FAFB;
+    --Home-Hero-Gradient-Start: rgba(0, 0, 0, 0.59);
+    --Home-Hero-Gradient-End: rgba(1, 0, 146, 0.59);
+    --Home-Hero-Title-Text: var(--White);
+    --Home-Hero-SmallText-Text: var(--White);
+    --Home-Hero-SelectTag-Background: #2162FF;
+    --Medical-Button-Background: rgba(36, 42, 194, 0);
+    --Medical-Button-On-Selected-Background: #242AC2;
+    --Category-Background: rgba(33, 98, 255, 0.07);
+    --Category-On-Selected-Background: #2162FF;
+    --Card-Hover-Background: var(--White);
+    --Recently-Added-Title-Text: #05184A;
+
+
+
+    /* Font Families */
+    --font-dm-sans: 'DM Sans', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+
+    /* Font Sizes */
+    --font-size-small: 13px;
+    --font-size-medium: 14px;
+    --font-size-large: 45px;
+
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const SelectInput = ({ items }) => {
   return (
-    <select className='outline-none flex-shrink-0 w-max bg-inherit flex-grow-1 flex justify-center items-center text-sm hover:cursor-pointer'>
+    <select className='outline-none font-dm-sans font-feature-setting text-medium font-medium leading-8 flex-shrink-0 w-max bg-inherit flex-grow flex justify-center items-center hover:cursor-pointer'>
       {items &&
         items.map((item) => {
           return (
