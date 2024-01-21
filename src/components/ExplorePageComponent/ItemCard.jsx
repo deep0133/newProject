@@ -5,7 +5,8 @@ const ItemCard = ({
   title,
   point_1,
   point_2,
-  point_3,
+  point_3_1,
+  point_3_2,
 }) => {
   return (
     <div className='relative border-b px-4 py-5'>
@@ -139,11 +140,13 @@ const ItemCard = ({
           </i>
         </div>
       </div>
-      <div className='content mt-10 space-y-1 px-4'>
-        <h3 className='text-[16px] font-semibold'>{title}</h3>
-        <p className='text-sm font-medium text-gray-600'>{point_1}</p>
-        <p className='text-sm font-medium text-gray-600'>{point_2}</p>
-        <p className='text-sm font-medium text-gray-600'>{point_3}</p>
+      <div className='content mt-10 space-y-1 px-4 font-dm-sans'>
+        <h3 className='text-18px font-bold text-blue-darkBlue'>{title}</h3>
+        <p className='text-medium font-medium text-black/70'>{point_1}</p>
+        <p className='text-medium font-medium text-black/70'>{point_2}</p>
+        <p className='text-medium font-medium text-black/70'>
+          {point_3_1} <span className='text-black'>{point_3_2}</span>
+        </p>
       </div>
     </div>
   )
@@ -154,7 +157,8 @@ ItemCard.propTypes = {
   title: PropTypes.string,
   point_1: PropTypes.string,
   point_2: PropTypes.string,
-  point_3: PropTypes.string,
+  point_3_1: PropTypes.string,
+  point_3_2: PropTypes.string,
 }
 
 export default ItemCard

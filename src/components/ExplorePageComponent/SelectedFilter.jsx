@@ -1,50 +1,12 @@
 import PropTypes from 'prop-types'
-
+import crossNoBgIcon from '../../assets/svg/cross_no_bg.svg'
 const SelectedFilter = ({ title }) => {
   return (
-    <div className='selected-filtered flex w-fit items-center justify-center rounded-md bg-gray-200 px-3 py-1 text-xs font-semibold'>
-      <p className='item'>{title}</p>
-      <i className='hover:cursor-pointer'>
-        <svg
-          width='30'
-          height='30'
-          viewBox='0 0 35 35'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <g id='Group 1000004642'>
-            <g id='Group 1000004641'>
-              <g id='Group 427318269'>
-                <circle
-                  id='Ellipse 2'
-                  cx='17.5'
-                  cy='17.5'
-                  r='17.5'
-                  fill='none'
-                />
-              </g>
-              <g id='Group 1000004640'>
-                <path
-                  id='Vector'
-                  d='M12 22.66L22.66 12'
-                  stroke='black'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  id='Vector_2'
-                  d='M22.66 22.66L12 12'
-                  stroke='black'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </g>
-            </g>
-          </g>
-        </svg>
-      </i>
+    <div className='selected-filtered box-shadow bg-light-magnolia  border-light-magnolia flex h-[40px] w-fit items-center justify-center rounded-lg border px-5 text-xs font-semibold'>
+      <p className='item font-dm-sans text-xSmall font-medium  leading-5 text-black'>
+        {title}
+      </p>
+      <img className='ml-1 hover:cursor-pointer' src={crossNoBgIcon} />
     </div>
   )
 }

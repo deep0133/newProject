@@ -4,7 +4,10 @@
 
 @layer base {
   .responsiveWidth {
-    @apply w-[95%] sm:w-[85%] lg:w-[82%] max-w-[90rem];
+    @apply w-[95%] max-w-[90rem] sm:w-[85%] lg:w-[82%];
+  }
+  .blue-gradient {
+    background-image: linear-gradient(269deg, #090b4a 47.16%, #000360 93.26%);
   }
 }
 
@@ -14,15 +17,15 @@
       rgba(0, 0, 0, 0.59),
       rgba(1, 0, 146, 0.59) 109.83%
     ),
-    url("../src/assets/images/home-background.png");
+    url('../src/assets/images/home-background.png');
   background-position: center;
   background-size: cover;
 }
 
 .font-feature-setting {
   font-feature-settings:
-    "clig" off,
-    "liga" off;
+    'clig' off,
+    'liga' off;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -54,4 +57,11 @@
   min-height: 57px;
   background-color: #b1b1b1;
   border-radius: 6px;
+}
+
+.box-shadow {
+  box-shadow: 0px 1px 2px 0px rgba(14, 24, 41, 0.05);
+}
+.date-box-shadow {
+  box-shadow: 3px 5px 19px 0px rgba(0, 0, 0, 0.03);
 }

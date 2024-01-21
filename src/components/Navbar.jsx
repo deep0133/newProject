@@ -18,13 +18,13 @@ function Navbar() {
   }
 
   return (
-    <div className='fixed top-0 z-50 mx-auto flex h-[85px] w-full items-center justify-center bg-navbar-background backdrop-blur-[5px] sm:h-[72px]'>
+    <div className='fixed top-0 z-50 mx-auto flex h-[85px] w-full items-center justify-center bg-black/70 backdrop-blur-[5px] sm:h-[72px]'>
       <div className='responsiveWidth top-0 mx-auto flex justify-between'>
         <div className='left-side flex space-x-5 '>
           <div className='logo flex items-center border-r-[0.5px] border-white/50 pr-3'>
             <img
               src={logo}
-              className='h-[20px] w-[75px] object-cover sm:h-[36px] sm:w-[104px] sm:p-2'
+              className='h-[21px] w-[75px] object-cover p-2 sm:h-[36px] sm:w-[104px] sm:px-0  '
               alt='logo'
             />
           </div>

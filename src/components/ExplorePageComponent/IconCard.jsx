@@ -3,17 +3,24 @@ import PropTypes from 'prop-types'
 const IconCard = ({ title, number, iconLink, bgColor }) => {
   return (
     <div
-      className={`bg-blueCardBackground relative rounded-md border px-5 py-2 text-xs `}
+      className={`bg-light-pureWhite sm:bg-light-whiteO05 sm:border-light-whiteO1 relative rounded-[9px] border border-blue-darkO1 px-6 py-4 text-xs font-bold tracking-[-1px] `}
     >
-      <div className={`icon absolute left-[-15px] top-[-17px] bg-[${bgColor}]`}>
+      <div
+        className={`icon text-light-pureWhite font-feature-setting absolute left-[-15px] top-[-17px] h-8 w-8 overflow-hidden font-dm-sans bg-[${bgColor}]`}
+      >
         <img
           src={iconLink}
-          className={`h-8 w-8 rounded-full`}
+          className={`rounded-full `}
           style={{ background: bgColor }}
         />
       </div>
-      <p>{title}</p>
-      <p className='text-sm font-bold'>{number}</p>
+      <p
+        className={`sm:text-light-pureWhite mb-2 text-16px`}
+        style={{ color: bgColor }}
+      >
+        {title}
+      </p>
+      <p className='text-23px'>{number}</p>
     </div>
   )
 }
