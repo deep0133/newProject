@@ -1,17 +1,17 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-black py-5 font-dm-sans text-white ">
-      <div className="responsiveWidth mx-auto gap-3 md:gap-6 md:-px-5 text-[14px] leading-[20px] md:flex-row flex-col flex text-xs justify-between items-baseline">
-        <p className="pt-3 min-w-[287px] font-medium ">
+    <footer className='w-full bg-black py-5 font-dm-sans text-white '>
+      <div className='responsiveWidth md:-px-5 mx-auto flex flex-col items-baseline justify-between gap-3 text-[14px] text-xs leading-[20px] md:flex-row md:gap-6'>
+        <p className='min-w-[287px] pt-3 font-medium '>
           © 2023 Website hosted and managed by ADS | AVAGS DIGITAL SERVICES LLP
           - All Rights Reserved
         </p>
-        <divc className="flex gap-5 py-3 flex-nowrap text-nowrap">
-          <p className="hover:cursor-pointer flex-wrap">Terms and Conditions</p>
-          <p className="hover:cursor-pointer flex-wrap">Privacy Policy</p>
-          <p className="hover:cursor-pointer flex-wrap">Contact Us</p>
+        <divc className='flex flex-nowrap gap-5 text-nowrap py-3'>
+          <p className='flex-wrap hover:cursor-pointer'>Terms and Conditions</p>
+          <p className='flex-wrap hover:cursor-pointer'>Privacy Policy</p>
+          <p className='flex-wrap hover:cursor-pointer'>Contact Us</p>
         </divc>
       </div>
     </footer>
-  );
+  )
 }

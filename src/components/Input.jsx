@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 
 function Input({
   type,
@@ -16,12 +16,12 @@ function Input({
     onChange,
     className,
     placeholder,
-    ...(type === ("radioField" || "checkBox")
+    ...(type === ('radioField' || 'checkBox')
       ? { checked }
       : { value, required }),
-  };
+  }
 
-  return <input {...inputProps} />;
+  return <input {...inputProps} />
 }
 
 Input.propTypes = {
@@ -33,13 +33,13 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string,
   checked: PropTypes.bool,
-};
+}
 
 Input.defaultProps = {
-  type: "text",
-  value: "",
+  type: 'text',
+  value: '',
   required: false,
   checked: false,
-};
+}
 
-export default Input;
+export default Input

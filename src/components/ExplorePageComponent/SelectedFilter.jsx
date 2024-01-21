@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 
 const SelectedFilter = ({ title }) => {
   return (
-    <div className='selected-filtered px-3 text-xs py-1 rounded-md font-semibold w-fit bg-gray-200 flex justify-center items-center'>
+    <div className='selected-filtered flex w-fit items-center justify-center rounded-md bg-gray-200 px-3 py-1 text-xs font-semibold'>
       <p className='item'>{title}</p>
       <i className='hover:cursor-pointer'>
         <svg
@@ -10,7 +10,8 @@ const SelectedFilter = ({ title }) => {
           height='30'
           viewBox='0 0 35 35'
           fill='none'
-          xmlns='http://www.w3.org/2000/svg'>
+          xmlns='http://www.w3.org/2000/svg'
+        >
           <g id='Group 1000004642'>
             <g id='Group 1000004641'>
               <g id='Group 427318269'>
@@ -45,11 +46,11 @@ const SelectedFilter = ({ title }) => {
         </svg>
       </i>
     </div>
-  );
-};
+  )
+}
 
 SelectedFilter.propTypes = {
   title: PropTypes.string,
-};
+}
 
-export default SelectedFilter;
+export default SelectedFilter

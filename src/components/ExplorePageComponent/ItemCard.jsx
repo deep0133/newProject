@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 const ItemCard = ({
   badgeColor,
   badgeValue,
@@ -8,21 +8,23 @@ const ItemCard = ({
   point_3,
 }) => {
   return (
-    <div className='border-b px-4 py-5 relative'>
-      <div className='absolute top-3 left-0 flex justify-between w-full'>
+    <div className='relative border-b px-4 py-5'>
+      <div className='absolute left-0 top-3 flex w-full justify-between'>
         <div
           style={{ background: badgeColor }}
-          className={`badge  rounded-r-lg pl-5 pr-3 text-sm text-white py-1 flex justify-center items-center`}>
+          className={`badge  flex items-center justify-center rounded-r-lg py-1 pl-5 pr-3 text-sm text-white`}
+        >
           <p>{badgeValue}</p>
         </div>
-        <div className='icons flex gap-2 items-center pr-5'>
+        <div className='icons flex items-center gap-2 pr-5'>
           <i>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='30'
               height='30'
               viewBox='0 0 35 35'
-              fill='none'>
+              fill='none'
+            >
               <circle cx='17.5' cy='17.5' r='17.5' fill='#408000' />
               <circle
                 cx='17.5'
@@ -45,7 +47,8 @@ const ItemCard = ({
               width='19'
               height='19'
               viewBox='0 0 19 19'
-              fill='none'>
+              fill='none'
+            >
               <path
                 d='M10.3392 8.66089C12.1204 10.4421 12.1204 13.3238 10.3392 15.0971C8.55792 16.8705 5.67625 16.8784 3.90292 15.0971C2.12958 13.3159 2.12167 10.4342 3.90292 8.66089'
                 stroke='#00035C'
@@ -70,7 +73,8 @@ const ItemCard = ({
               width='16'
               height='16'
               viewBox='0 0 16 16'
-              fill='none'>
+              fill='none'
+            >
               <path
                 d='M14.6667 7.76672H10.8C9.77999 7.76672 9.07999 6.99338 9.07999 6.04671V3.90002C9.07999 2.95336 9.77999 2.18005 10.8 2.18005H12.9467C13.8933 2.18005 14.6667 2.95336 14.6667 3.90002V7.76672Z'
                 stroke='#00035C'
@@ -111,7 +115,8 @@ const ItemCard = ({
               width='19'
               height='19'
               viewBox='0 0 19 19'
-              fill='none'>
+              fill='none'
+            >
               <path
                 d='M5.85833 5.00333L12.5796 2.76292C15.5958 1.7575 17.2346 3.40417 16.2371 6.42042L13.9967 13.1417C12.4925 17.6621 10.0225 17.6621 8.51833 13.1417L7.85333 11.1467L5.85833 10.4817C1.33791 8.9775 1.33791 6.51542 5.85833 5.00333Z'
                 stroke='#00035C'
@@ -134,15 +139,15 @@ const ItemCard = ({
           </i>
         </div>
       </div>
-      <div className='content mt-10 px-4 space-y-1'>
-        <h3 className='font-semibold text-[16px]'>{title}</h3>
-        <p className='text-sm text-gray-600 font-medium'>{point_1}</p>
-        <p className='text-sm text-gray-600 font-medium'>{point_2}</p>
-        <p className='text-sm text-gray-600 font-medium'>{point_3}</p>
+      <div className='content mt-10 space-y-1 px-4'>
+        <h3 className='text-[16px] font-semibold'>{title}</h3>
+        <p className='text-sm font-medium text-gray-600'>{point_1}</p>
+        <p className='text-sm font-medium text-gray-600'>{point_2}</p>
+        <p className='text-sm font-medium text-gray-600'>{point_3}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 ItemCard.propTypes = {
   badgeColor: PropTypes.string,
   badgeValue: PropTypes.string,
@@ -150,6 +155,6 @@ ItemCard.propTypes = {
   point_1: PropTypes.string,
   point_2: PropTypes.string,
   point_3: PropTypes.string,
-};
+}
 
-export default ItemCard;
+export default ItemCard
