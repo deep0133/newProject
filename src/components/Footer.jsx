@@ -6,11 +6,11 @@ export default function Footer() {
           © 2023 Website hosted and managed by ADS | AVAGS DIGITAL SERVICES LLP
           - All Rights Reserved
         </p>
-        <divc className='flex flex-nowrap gap-5 text-nowrap py-3'>
+        <div className='flex flex-nowrap gap-5 text-nowrap py-3'>
           <p className='flex-wrap hover:cursor-pointer'>Terms and Conditions</p>
           <p className='flex-wrap hover:cursor-pointer'>Privacy Policy</p>
           <p className='flex-wrap hover:cursor-pointer'>Contact Us</p>
-        </divc>
+        </div>
       </div>
     </footer>
   )

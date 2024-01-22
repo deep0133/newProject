@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 const IconCard = ({ title, number, iconLink, bgColor }) => {
   return (
     <div
-      className={`bg-light-pureWhite sm:bg-light-whiteO05 sm:border-light-whiteO1 relative rounded-[9px] border border-blue-darkO1 px-6 py-4 text-xs font-bold tracking-[-1px] `}
+      className={`relative rounded-[9px] border border-blue-darkO1 bg-light-pureWhite px-6 py-4 text-xs font-bold tracking-[-1px] sm:border-light-whiteO1 sm:bg-light-whiteO05 `}
     >
       <div
-        className={`icon text-light-pureWhite font-feature-setting absolute left-[-15px] top-[-17px] h-8 w-8 overflow-hidden font-dm-sans bg-[${bgColor}]`}
+        className={`icon font-feature-setting absolute left-[-13px] top-[-13px] h-8 w-8 overflow-hidden font-dm-sans text-light-pureWhite bg-[${bgColor}]`}
       >
         <img
           src={iconLink}
-          className={`rounded-full `}
+          className={`rounded-full p-1`}
           style={{ background: bgColor }}
         />
       </div>
       <p
-        className={`sm:text-light-pureWhite mb-2 text-16px`}
+        className={`mb-2 text-16px sm:text-light-pureWhite`}
         style={{ color: bgColor }}
       >
         {title}

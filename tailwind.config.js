@@ -14,6 +14,7 @@ export default {
           brightGrey: '#344050',
           darkGrey: 'rgb(49, 64, 86)',
           darkGreyO2: 'rgba(49, 64, 86, 0.20)',
+          paleGrey: '#FDFDFF',
         },
         blue: {
           soft: '#6183f0',

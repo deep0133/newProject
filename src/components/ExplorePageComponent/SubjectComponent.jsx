@@ -12,7 +12,7 @@ const SubjectComponent = ({ subject, subjectHandler }) => {
         }}
         className=' relative hover:cursor-pointer'
       >
-        <div className='hover:text-blue-clear text-grey-brightGrey flex items-center justify-between font-dm-sans text-medium font-medium leading-5'>
+        <div className='flex items-center justify-between font-dm-sans text-medium font-medium leading-5 text-grey-brightGrey hover:text-blue-clear'>
           <p className=' flex space-x-1 underline'>{subject.title}</p>
           <div className='flex items-center gap-1'>
             <span className=''>{subject.number}</span>
@@ -37,7 +37,7 @@ const SubjectComponent = ({ subject, subjectHandler }) => {
 
         <span className='absolute -left-2 top-0 h-5 w-5 rounded-full bg-white'></span>
       </summary>
-      <div className='border-blue-darkO2 mt-3 rounded-[9px] border p-3 leading-6'>
+      <div className='bg-grey-paleGrey mt-3 rounded-[9px] border border-blue-darkO2 p-3 leading-6'>
         {subject.innerContent.map((subItem, indx) => {
           return <SubSubjectComponent key={indx} subSubject={subItem} />
         })}
