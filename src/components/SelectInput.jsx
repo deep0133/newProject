@@ -6,7 +6,7 @@ const SelectInput = ({ items }) => {
       {items &&
         items.map((item) => {
           return (
-            <option className='bg-white pr-3 text-black' key={item.id}>
+            <option className='bg-white pr-2 text-black' key={item.id}>
               {item.value}
             </option>
           )
