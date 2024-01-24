@@ -134,7 +134,7 @@ export default function AdvanceSearch() {
     if (type === 'radioField') {
       setPublicationValues({
         ...publicationValues,
-        [e.target.name]: e.target.checked,
+        [e.target.id]: e.target.checked,
       })
     } else if (type === 'dateField') {
       setDateValues({
@@ -180,10 +180,7 @@ export default function AdvanceSearch() {
               Write Context :
             </p>
             <div className='inputs mt-6 grid gap-3'>
-              <div
-                className='input_1 relative flex flex-col gap-3
-               sm:flex-row sm:items-center sm:justify-center sm:gap-5'
-              >
+              <div className='input_1 relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-5'>
                 <div className='select-input relative order-last flex w-fit rounded-[34px] bg-blue-azul px-3 py-2 text-medium font-medium leading-6 text-light-pureWhite sm:order-first'>
                   <SelectInput items={selectInputOptionValues.selectInputOne} />
                 </div>
@@ -195,16 +192,16 @@ export default function AdvanceSearch() {
                   required={true}
                   placeholder={'Search Articles,Journals,Videos etc'}
                   className={
-                    'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium  leading-6 text-black/70 outline-none'
+                    'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6 text-black/70 outline-none'
                   }
                 />
-                <div className='icon absolute right-1 top-1'>
+                <div className='icon absolute right-1 top-[3px]'>
                   {inputFieldValue.inputFieldOne.length > 0 ? (
                     <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full'>
                       <img
                         src={searchIcon}
                         alt=''
-                        className='rounded-full bg-blue-500 object-cover p-2'
+                        className='rounded-full bg-blue-azul object-cover p-2'
                       />
                     </div>
                   ) : (
@@ -214,7 +211,7 @@ export default function AdvanceSearch() {
               </div>
 
               <div className='input_2 relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-5'>
-                <div className='select-input relative order-last flex w-fit items-center justify-center rounded-full bg-blue-azul px-3 py-2 text-light-pureWhite sm:order-first'>
+                <div className='select-input relative order-last flex w-fit rounded-[34px] bg-blue-azul px-3 py-2 text-medium font-medium leading-6 text-light-pureWhite sm:order-first'>
                   <SelectInput items={selectInputOptionValues.selectInputTwo} />
                 </div>
                 <Input
@@ -225,16 +222,16 @@ export default function AdvanceSearch() {
                   required={true}
                   placeholder={'Search Articles,Journals,Videos etc'}
                   className={
-                    'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6  text-black/70 outline-none'
+                    'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6 text-black/70 outline-none'
                   }
                 />
-                <div className='icon absolute right-1 '>
+                <div className='icon absolute right-1 top-[3px]'>
                   {inputFieldValue.inputFieldTwo.length > 0 ? (
                     <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full'>
                       <img
                         src={searchIcon}
                         alt=''
-                        className='rounded-full bg-blue-500 object-cover p-2'
+                        className='rounded-full bg-blue-azul object-cover p-2'
                       />
                     </div>
                   ) : (
@@ -259,16 +256,16 @@ export default function AdvanceSearch() {
                   required={true}
                   placeholder={'Search Articles,Journals,Videos etc'}
                   className={
-                    'w-full rounded-full border-2 py-2 pl-4 pr-14 text-medium font-medium leading-6  text-black/70 outline-none'
+                    'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6 text-black/70 outline-none'
                   }
                 />
-                <div className='icon absolute right-1'>
+                <div className='icon absolute right-1 top-[3px]'>
                   {inputFieldValue.inputFieldThree.length > 0 ? (
                     <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full'>
                       <img
                         src={searchIcon}
                         alt=''
-                        className='rounded-full bg-blue-500 object-cover p-2'
+                        className='rounded-full bg-blue-azul object-cover p-2'
                       />
                     </div>
                   ) : (
@@ -288,13 +285,14 @@ export default function AdvanceSearch() {
               <div className='radio-1 mr-5 mt-2 flex items-center space-x-1'>
                 <Input
                   type={'radio'}
-                  name='radioFieldOne'
+                  name='radio'
+                  id='radioFieldOne'
                   changeHandler={(e) => changeHandler(e, 'radioField')}
                   checked={publicationValues.radioFieldOne}
                   required={false}
                   placeholder={'Search Articles,Journals,Videos etc'}
                   className={
-                    'rounded-full border py-2 text-medium font-medium leading-6 text-black/70  accent-blue-500 outline-none'
+                    'rounded-full border py-2 text-medium font-medium leading-6 text-black/70  accent-blue-azul outline-none'
                   }
                 />
                 <label
@@ -308,13 +306,14 @@ export default function AdvanceSearch() {
                 <div className='radio-2 mr-5 flex items-center space-x-1'>
                   <Input
                     type={'radio'}
-                    name='radioFieldTwo'
+                    name='radio'
+                    id='radioFieldTwo'
                     changeHandler={(e) => changeHandler(e, 'radioField')}
                     checked={publicationValues.radioFieldTwo}
                     required={true}
                     placeholder={'Search Articles,Journals,Videos etc'}
                     className={
-                      'rounded-full border accent-blue-500 outline-none'
+                      'rounded-full border accent-blue-azul outline-none'
                     }
                   />
                   <label
