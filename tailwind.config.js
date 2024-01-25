@@ -10,6 +10,7 @@ export default {
           100: '#F2F4F7',
           500: '#667085',
           700: '#344054',
+          pickledBlueWood: '#344054',
           iron: '#CCD5DF',
           mirage: '#0E1829',
           brightGrey: '#344050',
@@ -24,6 +25,7 @@ export default {
           bluewood: '#314155',
           purple: '#7F56D9',
           blueChalk: 'rgba(235, 236, 255, 0.50)',
+          aliceBlue: 'rgba(245, 245, 255, 0.18)',
           clear: '#3461FF',
           clearO1: 'rgba(33, 98, 255, 0.1)',
           clearO2: 'rgba(33, 98, 255, 0.20)',
@@ -58,6 +60,12 @@ export default {
         },
         red: {
           brightRed: '#FF0010',
+        },
+        pink: {
+          neonPink: 'rgba(240, 67, 253, 0.07)',
+        },
+        green: {
+          napier: '#208200',
         },
         'navbar-background': 'rgba(105, 105, 105, 0.03)',
         'navbar-text-color': '#FFFFFF',
@@ -100,6 +108,7 @@ export default {
         '18px': '18px',
         '19px': '19px',
         '20px': '20px',
+        '22px': '22px',
         '23px': '23px',
         '24px': '24px',
         semilarge: '28px',

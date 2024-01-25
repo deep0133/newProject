@@ -14,6 +14,14 @@ import clearIcon from '../assets/svg/clear.svg'
 import filterIcon from '../assets/svg/filter.svg'
 import greenLockIcon from '../assets/svg/greenLock.svg'
 
+import {
+  PublicationData,
+  PublicationDateData,
+  AccessKeyData,
+  SubjectData,
+  CardData,
+} from '../utils/data'
+
 const iconsData = [
   {
     id: 1,
@@ -46,297 +54,18 @@ const iconsData = [
 ]
 
 export default function Explore() {
-  const [cardData, setCardData] = useState([
-    {
-      id: 1,
-      badgeColor: '#2A67FF',
-      badgeValue: 'e-Journals',
-      title: 'Journal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 2,
-      badgeColor: '#C19300',
-      badgeValue: 'eBook',
-      title: 'Journal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 3,
-      badgeColor: '#D12720',
-      badgeValue: 'eArtical',
-      title: 'Aritcal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 4,
-      badgeColor: '#000360',
-      badgeValue: 'eArtical',
-      title: 'Journal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 5,
-      badgeColor: '#C19300',
-      badgeValue: 'eBook',
-      title: 'Journal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 6,
-      badgeColor: '#D12720',
-      badgeValue: 'eArtical',
-      title: 'Aritcal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-    {
-      id: 7,
-      badgeColor: '#000360',
-      badgeValue: 'eArtical',
-      title: 'Journal of Prosthodontics',
-      point_1: 'Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
-      point_2: 'Chemie Ingenieur TechnikVolume 87, Issue 5',
-      point_3_1: 'Date of Publsih :',
-      point_3_2: '01 April 2015',
-    },
-  ])
-
   const [mobileFilterCss, setMobileFilterCss] = useState('-translate-x-[110%]')
 
-  const [publicationData, setPublicationData] = useState([
-    {
-      id: 1,
-      status: false,
-      label: 'e-Journals',
-      number: 55,
-    },
-    {
-      id: 2,
-      status: false,
-      label: 'e-Books',
-      number: 44,
-    },
-    {
-      id: 3,
-      status: true,
-      label: 'Videos',
-      number: 33,
-    },
-    {
-      id: 4,
-      status: false,
-      label: 'Dissertations and Thesis',
-      number: 22,
-    },
-    {
-      id: 5,
-      status: true,
-      label: 'e-Articles',
-      number: 11,
-    },
-    {
-      id: 6,
-      status: false,
-      label: 'Other e-Resources',
-      number: 11,
-    },
-  ])
+  const [cardData, setCardData] = useState(CardData)
 
-  const [publicationDateData, setPublicationDateData] = useState([
-    {
-      id: 1,
-      status: false,
-      label: 'Last Week',
-    },
-    {
-      id: 2,
-      status: false,
-      label: 'Last Month',
-    },
-    {
-      id: 3,
-      status: false,
-      label: 'Last 3 Months',
-    },
-    {
-      id: 4,
-      status: false,
-      label: 'Last 6 Months',
-      number: 22,
-    },
-    {
-      id: 5,
-      status: false,
-      label: 'Last 12 Months',
-      number: 11,
-    },
-  ])
+  const [publicationData, setPublicationData] = useState(PublicationData)
 
-  const [accessKeyData, setAccessKeyData] = useState([
-    {
-      id: 1,
-      status: false,
-      label: 'Full Text Only',
-    },
-    {
-      id: 2,
-      status: false,
-      label: 'Open Access Content',
-    },
-    {
-      id: 3,
-      status: true,
-      label: 'Partial Subscribed Content',
-    },
-    {
-      id: 4,
-      status: false,
-      label: 'Abstract Only',
-    },
-    {
-      id: 5,
-      status: true,
-      label: 'Subscribed Content',
-    },
-    {
-      id: 6,
-      status: true,
-      label: 'Indexed Journals',
-    },
-  ])
+  const [publicationDateData, setPublicationDateData] =
+    useState(PublicationDateData)
 
-  const [subjectData, setSubjectData] = useState([
-    {
-      id: 1,
-      open: false,
-      title: 'Medical',
-      number: 1800,
-      innerContent: [
-        {
-          id: 1,
-          status: false,
-          label: 'Human Anatomy and Physiology',
-        },
-        {
-          id: 2,
-          status: false,
-          label: 'Remedial Biology',
-        },
-        {
-          id: 3,
-          status: false,
-          label: 'Biochemistry',
-        },
-        {
-          id: 4,
-          status: false,
-          label: 'Anatomy',
-        },
-      ],
-    },
-    {
-      id: 2,
-      open: false,
-      title: 'Dental',
-      number: 555,
-      innerContent: [
-        {
-          id: 1,
-          status: false,
-          label: 'AAAA',
-        },
-        {
-          id: 2,
-          status: false,
-          label: 'BBBB',
-        },
-        {
-          id: 3,
-          status: false,
-          label: 'CCCC',
-        },
-        {
-          id: 4,
-          status: false,
-          label: 'DDDD',
-        },
-      ],
-    },
-    {
-      id: 3,
-      open: false,
-      title: 'Nursing',
-      number: 888,
-      innerContent: [
-        {
-          id: 1,
-          status: false,
-          label: 'Human Anatomy and Physiology',
-        },
-        {
-          id: 2,
-          status: false,
-          label: 'Remedial Biology',
-        },
-        {
-          id: 3,
-          status: false,
-          label: 'Biochemistry',
-        },
-        {
-          id: 4,
-          status: false,
-          label: 'Anatomy',
-        },
-      ],
-    },
-    {
-      id: 4,
-      open: false,
-      title: 'Pharma',
-      number: 555,
-      innerContent: [
-        {
-          id: 1,
-          status: false,
-          label: 'Human Anatomy and Physiology',
-        },
-        {
-          id: 2,
-          status: false,
-          label: 'Remedial Biology',
-        },
-        {
-          id: 3,
-          status: false,
-          label: 'Biochemistry',
-        },
-        {
-          id: 4,
-          status: false,
-          label: 'Anatomy',
-        },
-      ],
-    },
-  ])
+  const [accessKeyData, setAccessKeyData] = useState(AccessKeyData)
+
+  const [subjectData, setSubjectData] = useState(SubjectData)
 
   const checkBoxHandler = (id, selectionType, items) => {
     const updatedSelectionType = items.map((item) => {

@@ -18,7 +18,7 @@ function Navbar() {
   }
 
   return (
-    <div className='fixed top-0 z-50 mx-auto flex h-[85px] w-full items-center justify-center bg-navbar-background backdrop-blur-[5px] sm:h-[72px]'>
+    <div className='fixed top-0 z-50 mx-auto flex h-[85px] w-full items-center justify-center bg-black/40 backdrop-blur-[5px] sm:h-[72px]'>
       <div className='responsiveWidth top-0 mx-auto flex justify-between'>
         <div className='left-side flex space-x-5 '>
           <div className='logo flex items-center border-r-[0.5px] border-white/50 pr-3'>

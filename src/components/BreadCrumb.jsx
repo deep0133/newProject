@@ -1,6 +1,7 @@
-const Breadcrumb = () => {
+import PropTypes from 'prop-types'
+const Breadcrumb = ({ title }) => {
   return (
-    <section className='breadcrumb sm:bg-blue-blueChalk mt-[85px] bg-black  py-8 sm:mt-[72px] sm:py-3'>
+    <section className='breadcrumb mt-[85px] bg-black py-8  sm:mt-[72px] sm:bg-blue-blueChalk sm:py-3'>
       <div className='responsiveWidth mx-auto flex flex-col justify-between gap-5 px-1 sm:flex-row'>
         <div className='icon-links flex items-center space-x-3'>
           <i>
@@ -21,20 +22,24 @@ const Breadcrumb = () => {
           <div className='links font-feature-setting flex font-dm-sans text-18px font-medium tracking-[-1px]'>
             <p className='text-light-whiteO3 sm:text-black/30'>Basic Search </p>
             <span className='px-1 text-white sm:text-black'>/</span>
-            <p className='text-white sm:text-black'>Advanced Search</p>
+            <p className='text-white sm:text-black'>{title}</p>
           </div>
         </div>
         <div className='btns space-x-3 font-dm-sans text-medium font-medium leading-6'>
-          <button className='border-light-whiteO2 h-[34px] rounded-[5px] border px-[14px] text-light-pureWhite outline-none  duration-200 hover:bg-blue-azul hover:text-light-pureWhite sm:border-black/20 sm:text-black '>
+          <button className='h-[34px] rounded-[5px] border border-light-whiteO2 px-[14px] text-light-pureWhite outline-none  duration-200 hover:bg-blue-azul hover:text-light-pureWhite sm:border-black/20 sm:text-black '>
             Apply Filters
           </button>
-          <button className='border-light-whiteO2 h-[34px] rounded-[5px] border px-[14px] text-light-pureWhite outline-none  duration-200 hover:bg-blue-azul hover:text-light-pureWhite sm:border-black/20 sm:text-black '>
+          <button className='h-[34px] rounded-[5px] border border-light-whiteO2 px-[14px] text-light-pureWhite outline-none  duration-200 hover:bg-blue-azul hover:text-light-pureWhite sm:border-black/20 sm:text-black '>
             Clear All
           </button>
         </div>
       </div>
     </section>
   )
+}
+
+Breadcrumb.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default Breadcrumb
