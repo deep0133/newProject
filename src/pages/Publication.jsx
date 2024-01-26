@@ -3,8 +3,6 @@ import Input from '../components/Input'
 import SelectInput from '../components/SelectInput'
 import PropTypes from 'prop-types'
 
-import JournalBook from '../assets/images/Journal.jpg'
-
 import crossIcon from '../assets/svg/cross.svg'
 import filterIcon from '../assets/svg/filter.svg'
 import arrowIcon from '../assets/svg/arrow.svg'
@@ -29,7 +27,6 @@ import {
 } from '../utils/data'
 import CheckBox from '../components/CheckBox'
 import SubjectComponent from '../components/ExplorePageComponent/SubjectComponent'
-import ItemCard from '../components/ExplorePageComponent/ItemCard'
 
 export default function Publication() {
   const [search, setSearch] = useState('')
@@ -395,11 +392,7 @@ const CardItem = ({
   return (
     <div className='relative flex w-full gap-2 border border-b py-5 font-dm-sans sm:p-5'>
       <div className='image hidden min-h-[100px] min-w-[100px] shrink-0 overflow-hidden md:flex'>
-        <img
-          src={imageUrl ? imageUrl : JournalBook}
-          alt=''
-          className=' w-full object-cover'
-        />
+        <img src={imageUrl} alt='' className=' w-full object-cover' />
       </div>
       <div className='content w-full space-y-3 px-4'>
         <div className='flex place-items-baseline justify-between'>
