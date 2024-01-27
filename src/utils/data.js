@@ -1,3 +1,7 @@
+import JournalBook from '../assets/images/journal.jpg'
+import VideoImage from '../assets/images/video.jpg'
+import layerIcon from '../assets/images/layer.jpg'
+
 export const selectInputOptionValues = {
   selectInputOne: [
     {
@@ -446,10 +450,6 @@ export const CardData = [
     point_3_2: '01 April 2015',
   },
 ]
-
-import JournalBook from '../assets/images/Journal.jpg'
-import VideoImage from '../assets/images/video.jpg'
-import layerIcon from '../assets/images/layer.jpg'
 
 export const Journal = [
   {
