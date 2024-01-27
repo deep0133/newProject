@@ -27,6 +27,7 @@ import {
 } from '../utils/data'
 import CheckBox from '../components/CheckBox'
 import SubjectComponent from '../components/ExplorePageComponent/SubjectComponent'
+import Pagination from '../components/Pagination'
 
 export default function Publication() {
   const [search, setSearch] = useState('')
@@ -106,6 +107,26 @@ export default function Publication() {
     }
   }, [selectInput])
 
+  // ------------------Pagination Start------------------
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(cardData.length / 5) // Replace with your actual total number of pages
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const itemsPerPage = 5
+
+  // Function to get the current page items
+  const getCurrentPageItems = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    return cardData.slice(startIndex, endIndex)
+  }
+
+  // ------------------Pagination End------------------
+
   return (
     <>
       <div className='mx-2 my-8 grid grid-cols-8 gap-5 bg-light-pureWhite font-dm-sans md:mx-auto md:w-[85%] lg:w-[82%] lg:gap-8 '>
@@ -168,7 +189,7 @@ export default function Publication() {
             <h2 className='text-16px font-medium leading-5 text-light-pureWhite'>
               Select by Titles :
             </h2>
-            <div className='elements grid grid-cols-8 gap-2 pt-5'>
+            <div className='elements grid grid-cols-8 gap-2 pt-5 lg:grid-cols-6'>
               {AtoZcharacters.map((item, index) => {
                 return (
                   <button
@@ -363,19 +384,30 @@ export default function Publication() {
           </div>
         </div>
         {/* ---------------------------Right-Side--------------------------- */}
-        <div className='right col-span-full space-y-3 rounded-[9px] border border-blue-darkO2 bg-light-pureWhite font-dm-sans sm:col-span-7 md:col-span-8'>
-          {cardData.map((item) => {
-            return (
-              <CardItem
-                key={item.id}
-                imageUrl={item.imageUrl}
-                title={item.title}
-                publishedBy={item.publishedBy}
-                publicationPlace={item.publicationPlace}
-                publicationYear={item.publicationYear}
-              />
-            )
-          })}
+        <div className='right col-span-full flex flex-col items-end justify-between bg-light-pureWhite font-dm-sans sm:col-span-7 md:col-span-8'>
+          <div className='min-h-[400px] w-full space-y-3'>
+            <div>
+              {getCurrentPageItems().map((item, index, arr) => (
+                <CardItem
+                  key={item.id}
+                  lastItem={index === arr.length - 1}
+                  firstItem={index === 0}
+                  imageUrl={item.imageUrl}
+                  title={item.title}
+                  publishedBy={item.publishedBy}
+                  publicationPlace={item.publicationPlace}
+                  publicationYear={item.publicationYear}
+                />
+              ))}
+            </div>
+          </div>
+          {/* Render Pagination component */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onNextClick={() => handlePageChange(currentPage + 1)}
+            onPrevClick={() => handlePageChange(currentPage - 1)}
+          />
         </div>
       </div>
     </>
@@ -384,13 +416,17 @@ export default function Publication() {
 
 const CardItem = ({
   imageUrl,
+  firstItem,
+  lastItem,
   title,
   publishedBy,
   publicationPlace,
   publicationYear,
 }) => {
   return (
-    <div className='relative flex w-full gap-2 border border-b py-5 font-dm-sans sm:p-5'>
+    <div
+      className={`relative flex w-full gap-2 border ${lastItem === true ? 'rounded-b-[9px] border-b' : 'border-b-0 '} ${firstItem === true ? 'rounded-t-[9px]' : ''}  border-blue-darkO2 py-6 font-dm-sans sm:p-5`}
+    >
       <div className='image hidden min-h-[100px] min-w-[100px] shrink-0 overflow-hidden md:flex'>
         <img src={imageUrl} alt='' className=' w-full object-cover' />
       </div>
@@ -435,6 +471,9 @@ const CardItem = ({
 
 CardItem.propTypes = {
   imageUrl: PropTypes.string,
+
+  firstItem: PropTypes.bool,
+  lastItem: PropTypes.bool,
   title: PropTypes.string.isRequired,
   publicationYear: PropTypes.string,
   publishedBy: PropTypes.string,

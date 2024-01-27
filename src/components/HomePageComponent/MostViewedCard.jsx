@@ -9,9 +9,9 @@ const MostViewedCard = ({ mostViewedCardData }) => {
         <p className='line-clamp-1 text-wrap border-b-2 border-transparent text-15px font-medium text-blue-darkBlue  group-hover:text-blue-darkO6 group-hover:underline'>
           {item.title}
         </p>
-        <sapn className='flex h-[30px] flex-shrink-0 items-center justify-center rounded-[21px] border border-blue-darkO1 bg-blue-ultramarineBlueO1 px-[16px] py-[10px] text-xSmall font-medium leading-5'>
+        <span className='flex h-[30px] flex-shrink-0 items-center justify-center rounded-[21px] border border-blue-darkO1 bg-blue-ultramarineBlueO1 px-[16px] py-[10px] text-xSmall font-medium leading-5'>
           {item.tag}
-        </sapn>
+        </span>
       </div>
     )
   })
