@@ -12,10 +12,10 @@ import linkIcon from '../assets/svg/link.svg'
 import commaseIcon from '../assets/svg/commase.svg'
 import sendIcon from '../assets/svg/send.svg'
 import pdfIcon from '../assets/svg/pdf.svg'
+import earthIcon from '../assets/svg/earth.svg'
 import {
   selectInputOptionValues,
   suggestedTopic,
-  AtoZcharacters,
   PublicationData,
   PublicationDateData,
   SubjectData as TopicData,
@@ -68,7 +68,7 @@ export default function Publication() {
   }
 
   const subjectHandler = (id) => {
-    setSubjectData((prev) => {
+    setTopicData((prev) => {
       return prev.map((item) => {
         if (item.open === true || item.id === id) {
           console.log('currrent drop down id : ', id, item)
@@ -129,14 +129,14 @@ export default function Publication() {
 
   return (
     <>
-      <div className='mx-2 my-8 grid grid-cols-8 gap-5 bg-light-pureWhite font-dm-sans md:mx-auto md:w-[85%] lg:w-[82%] lg:gap-8 '>
-        <div className='left col-span-full flex-shrink flex-grow rounded-[9px] border bg-blue-aliceBlue px-[2.5%] py-10 sm:px-[7%] md:col-span-5 md:px-6 lg:col-span-6'>
+      <div className='mx-2 my-8 gap-5 bg-light-pureWhite font-dm-sans md:mx-auto md:w-[85%] lg:w-[82%] lg:gap-8 '>
+        <div className='left w-full flex-shrink flex-grow rounded-[9px] border bg-blue-aliceBlue px-[2.5%] py-10 sm:px-[7%]  md:px-6'>
           <h1 className='text-22px font-bold leading-[30px] text-black sm:leading-5'>
             Search and browse full text publications in your selected databases.
           </h1>
 
-          <div className='input-and-select relative mt-6 flex flex-col gap-3 sm:gap-5 lg:flex-row lg:items-center lg:justify-center'>
-            <div className='select-input relative order-last flex w-fit rounded-[34px] bg-blue-azul px-3 py-2 text-medium font-medium leading-6 text-light-pureWhite lg:order-first'>
+          <div className='input-and-select relative mt-6 flex max-w-3xl flex-col gap-3 sm:gap-5 md:flex-row md:items-center'>
+            <div className='select-input relative order-last flex w-fit rounded-[34px] bg-blue-azul px-3 py-2 text-medium font-medium leading-6 text-light-pureWhite md:order-first'>
               <SelectInput
                 items={selectInputOptionValues.selectInputFour}
                 selectChangeHandler={selectChangeHandler}
@@ -149,7 +149,7 @@ export default function Publication() {
               value={search}
               placeholder={'Search Articles,Journals,Videos etc'}
               className={
-                'w-full rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6 text-black/70 outline-none'
+                'w-full  rounded-full border py-2 pl-4 pr-14 text-medium font-medium leading-6 text-black/70 outline-none'
               }
             />
             <div className='icon absolute right-1 top-[3px]'>
@@ -183,26 +183,6 @@ export default function Publication() {
             </div>
           </div>
         </div>
-
-        <div className='right col-span-3 hidden flex-shrink-0 md:block lg:col-span-2'>
-          <div className='rounded-[9px] border-blue-darkO2 bg-blue-darkBlue p-5'>
-            <h2 className='text-16px font-medium leading-5 text-light-pureWhite'>
-              Select by Titles :
-            </h2>
-            <div className='elements grid grid-cols-8 gap-2 pt-5 lg:grid-cols-6'>
-              {AtoZcharacters.map((item, index) => {
-                return (
-                  <button
-                    key={item.id}
-                    className={`card ${index === 0 ? 'col-span-2 min-w-[30px]' : 'col-span-1 w-[30px]'} ${item.status ? 'bg-blue-azul' : ''} flex h-[30px] shrink-0 flex-grow-0 items-center justify-center rounded-full border-none text-18px font-medium leading-5 text-light-pureWhite outline-none duration-300 hover:bg-blue-azul`}
-                  >
-                    {item.name}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className='mx-2 my-8 grid grid-cols-12 gap-5 bg-light-pureWhite font-dm-sans sm:mx-auto sm:w-[85%] lg:w-[82%] lg:gap-8'>
@@ -229,13 +209,26 @@ export default function Publication() {
             </div>
             <div className='next-previous-page-icon flex items-center gap-3'>
               <div className='flex h-9 w-9 items-center justify-center rounded-[22px] border border-blue-darkO1 '>
-                <img src={arrowIcon} className='object-cover' alt='' />
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className='flex h-9 w-9 items-center justify-center rounded-[22px] border border-blue-darkO1 '
+                >
+                  <img src={arrowIcon} className='object-cover' alt='' />
+                </button>
               </div>
-              <p className='flex flex-nowrap text-nowrap text-medium font-normal leading-5 text-grey-pickledBlueWood'>
-                <span className='hidden pr-1 sm:block'>Page</span> 1 of 10
-              </p>
+              <div className='flex flex-nowrap text-nowrap text-medium font-normal leading-5 text-grey-pickledBlueWood'>
+                <span className='hidden pr-1 sm:block'>Page</span> {currentPage}{' '}
+                of {totalPages}
+              </div>
               <div className='flex h-9 w-9 rotate-180 items-center justify-center rounded-[22px] border border-blue-darkO1 '>
-                <img src={arrowIcon} className='object-cover' alt='' />
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className='flex h-9 w-9 items-center justify-center rounded-[22px] border border-blue-darkO1 '
+                >
+                  <img src={arrowIcon} className='object-cover' alt='' />
+                </button>
               </div>
             </div>
           </div>
@@ -390,6 +383,7 @@ export default function Publication() {
               {getCurrentPageItems().map((item, index, arr) => (
                 <CardItem
                   key={item.id}
+                  selectInput={selectInput}
                   lastItem={index === arr.length - 1}
                   firstItem={index === 0}
                   imageUrl={item.imageUrl}
@@ -416,6 +410,7 @@ export default function Publication() {
 
 const CardItem = ({
   imageUrl,
+  selectInput,
   firstItem,
   lastItem,
   title,
@@ -425,12 +420,25 @@ const CardItem = ({
 }) => {
   return (
     <div
-      className={`relative flex w-full gap-2 border ${lastItem === true ? 'rounded-b-[9px] border-b' : 'border-b-0 '} ${firstItem === true ? 'rounded-t-[9px]' : ''}  border-blue-darkO2 py-6 font-dm-sans sm:p-5`}
+      className={`relative flex min-h-[185px] w-full gap-2 border ${lastItem === true ? 'rounded-b-[9px] border-b' : 'border-b-0 '} ${firstItem === true ? 'rounded-t-[9px]' : ''}  border-blue-darkO2 py-6 font-dm-sans sm:p-5`}
     >
-      <div className='image hidden min-h-[100px] min-w-[100px] shrink-0 overflow-hidden md:flex'>
-        <img src={imageUrl} alt='' className=' w-full object-cover' />
-      </div>
-      <div className='content w-full space-y-3 px-4'>
+      {selectInput === 'e-Journal' || selectInput === 'e-Books' ? (
+        <div className='image hidden min-w-[100px] shrink-0 md:flex'>
+          <img src={imageUrl} alt='' className='w-full object-cover' />
+        </div>
+      ) : (
+        <div className='image hidden aspect-square h-[100px] w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-full border border-blue-clearO2 px-5 md:flex'>
+          <img
+            src={imageUrl}
+            alt=''
+            className='h-[50px] w-[50px] object-cover'
+          />
+        </div>
+      )}
+      <div className='content w-full space-y-3 px-4 font-dm-sans'>
+        <h3 className='-mb-2 text-15px font-bold uppercase tracking-[0.15px] text-black underline'>
+          Prostodontics
+        </h3>
         <div className='flex place-items-baseline justify-between'>
           <h3 className='text-18px font-bold text-green-napier'>{title}</h3>
           <div className='icons flex items-center gap-2'>
@@ -440,6 +448,7 @@ const CardItem = ({
             <img src={sendIcon} alt='' />
           </div>
         </div>
+
         <div className='relative flex flex-wrap gap-2'>
           <p className='text-medium text-black'>
             <span className='font-bold'>Published by : </span>{' '}
@@ -457,6 +466,15 @@ const CardItem = ({
             </p>
           )}
         </div>
+
+        {selectInput === 'Other Resources' && (
+          <div className='btn bg-yellow-muddy w-[193px] rounded-lg border text-center '>
+            <button className='flex w-full items-center justify-center gap-2 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
+              <img src={earthIcon} alt='' />
+              View On Pub Site
+            </button>
+          </div>
+        )}
       </div>
 
       <div className='text absolute bottom-3 right-5 flex gap-2 rounded-lg border border-light-lilac  bg-light-lilac'>
@@ -471,7 +489,7 @@ const CardItem = ({
 
 CardItem.propTypes = {
   imageUrl: PropTypes.string,
-
+  selectInput: PropTypes.string,
   firstItem: PropTypes.bool,
   lastItem: PropTypes.bool,
   title: PropTypes.string.isRequired,
