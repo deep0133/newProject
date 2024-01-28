@@ -67,6 +67,9 @@ export default {
         green: {
           napier: '#208200',
         },
+        yellow: {
+          muddy: '#BFA800',
+        },
         'navbar-background': 'rgba(105, 105, 105, 0.03)',
         'navbar-text-color': '#FFFFFF',
         'navbar-date-color': 'rgba(105, 105, 105, 0.03)',
