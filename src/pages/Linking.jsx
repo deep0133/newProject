@@ -1,5 +1,5 @@
 import journal from '../assets/images/journal.png'
-import journalCover from '../assets/images/journalcover.png'
+import journalCover from '../assets/images/journalCover.png'
 import lockIcon from '../assets/svg/whiteLock.svg'
 import earthIcon from '../assets/svg/earth.svg'
 import linkIcon from '../assets/svg/link.svg'
