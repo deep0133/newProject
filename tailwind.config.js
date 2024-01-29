@@ -26,6 +26,7 @@ export default {
           purple: '#7F56D9',
           blueChalk: 'rgba(235, 236, 255, 0.50)',
           aliceBlue: 'rgba(245, 245, 255, 0.18)',
+          denim: '#111784',
           clear: '#3461FF',
           clearO1: 'rgba(33, 98, 255, 0.1)',
           clearO2: 'rgba(33, 98, 255, 0.20)',
@@ -54,6 +55,7 @@ export default {
           whiteO3: 'rgba(255, 255, 255, 0.3)',
           lilac: 'rgba(250, 245, 255, 0.00)',
           magnolia: '#F9F5FF',
+          smoke: '#F3F3F3',
         },
         brown: {
           yellowishBrown: '#957100',
@@ -111,6 +113,7 @@ export default {
         '18px': '18px',
         '19px': '19px',
         '20px': '20px',
+        '21px': '21px',
         '22px': '22px',
         '23px': '23px',
         '24px': '24px',

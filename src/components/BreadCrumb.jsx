@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-const Breadcrumb = ({ title }) => {
+const Breadcrumb = ({ title, des }) => {
   return (
     <section className='breadcrumb mt-[85px] bg-black py-8  sm:mt-[72px] sm:bg-blue-blueChalk sm:py-3'>
       <div className='responsiveWidth mx-auto flex flex-col justify-between gap-5 px-1 sm:flex-row'>
@@ -20,8 +20,8 @@ const Breadcrumb = ({ title }) => {
             </svg>
           </i>
           <div className='links font-feature-setting flex font-dm-sans text-18px font-medium tracking-[-1px]'>
-            <p className='text-light-whiteO3 sm:text-black/30'>Basic Search </p>
-            <span className='px-1 text-white sm:text-black'>/</span>
+            <p className='text-light-whiteO3 sm:text-black/30'>{des} </p>
+            {des && <span className='px-1 text-white sm:text-black'>/</span>}
             <p className='text-white sm:text-black'>{title}</p>
           </div>
         </div>
@@ -40,6 +40,7 @@ const Breadcrumb = ({ title }) => {
 
 Breadcrumb.propTypes = {
   title: PropTypes.string.isRequired,
+  des: PropTypes.string,
 }
 
 export default Breadcrumb
