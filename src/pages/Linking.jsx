@@ -140,12 +140,12 @@ const Header = () => {
                   View Current Issue On Pub Site
                 </button>
 
-                <button className='bg-blue-denim flex w-fit items-center justify-center gap-2 rounded-lg px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
+                <button className='flex w-fit items-center justify-center gap-2 rounded-lg bg-blue-denim px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
                   <img src={earthIcon} alt='' />
                   View Archives on Pub Site
                 </button>
 
-                <button className='bg-light-smoke flex w-fit items-center justify-center rounded-lg px-5 py-2 text-medium font-medium leading-5 text-blue-darkBlue outline-none'>
+                <button className='flex w-fit items-center justify-center rounded-lg bg-light-smoke px-5 py-2 text-medium font-medium leading-5 text-blue-darkBlue outline-none'>
                   <img src={earthIcon} alt='' />
                   View Archives on Pub Site
                 </button>
@@ -178,7 +178,7 @@ const ImageComponent = () => {
 
 const Main = () => {
   return (
-    <div className='responsiveWidth mx-auto my-8  pb-8 '>
+    <div className='responsiveWidth mx-auto my-8  pb-8 font-dm-sans '>
       <div className='flex w-full gap-3 rounded-t-md border border-black/10 p-5 text-16px leading-[25px]'>
         <h2 className='font-bold text-blue-deepCove'>Related Journals</h2>
         <span className='font-normal  text-blue-deepCove/50 '>
@@ -209,7 +209,7 @@ const Main = () => {
 
 const Card = () => {
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden font-dm-sans'>
       <div className='flex h-[186px] w-[168px] overflow-hidden'>
         <img src={journalCover} className='flex-shrink-0 object-cover' alt='' />
       </div>

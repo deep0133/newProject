@@ -38,8 +38,11 @@ export default {
           darkO2: 'rgba(0, 3, 96, 0.2)',
           darkO6: 'rgba(0, 3, 96, 0.6)',
           deepCove: '#05184a',
+          tealish: '#0A1847',
           persianBlue: '#242AC2',
           darkBlue: '#000360',
+          darkBlue2: '#00035C',
+          darkBlue3: '#04075E',
           ultramarineBlue: 'rgba(76, 112, 255, 0.28)',
           ultramarineBlueO1: 'rgba(42, 103, 255, 0.1)',
         },
@@ -59,6 +62,7 @@ export default {
         },
         brown: {
           yellowishBrown: '#957100',
+          cornHarvest: '#907306',
         },
         red: {
           brightRed: '#FF0010',
@@ -68,6 +72,7 @@ export default {
         },
         green: {
           napier: '#208200',
+          grass: '#408000',
         },
         yellow: {
           muddy: '#BFA800',

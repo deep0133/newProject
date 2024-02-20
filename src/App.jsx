@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Publication from './pages/Publication'
 import Linking from './pages/Linking'
+import PDFViewer from './pages/PDFViewer'
 function App() {
   return (
     <>
@@ -38,6 +39,15 @@ function App() {
             <>
               <Breadcrumb title='Go Back to Publications' des={''} />{' '}
               <Linking />
+            </>
+          }
+        />
+        <Route
+          path='/pdfs'
+          element={
+            <>
+              <Breadcrumb title='Go Back to Publications' des={''} />{' '}
+              <PDFViewer />
             </>
           }
         />
