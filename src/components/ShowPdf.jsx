@@ -10,7 +10,9 @@ import '@react-pdf-viewer/full-screen/lib/styles/index.css'
 
 const path = 'https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js'
 
-const ShowPdf = ({ pdfUrl = `/src/assets/sample-pdf.pdf` }) => {
+import pdfPath from '../assets/sample-pdf.pdf'
+
+const ShowPdf = ({ pdfUrl = pdfPath }) => {
   const zoomPluginInstance = zoomPlugin()
 
   const renderToolbar = (Toolbar) => (
