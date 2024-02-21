@@ -6,6 +6,7 @@ import linkIcon from '../assets/svg/link.svg'
 import commaseIcon from '../assets/svg/commase.svg'
 import sendIcon from '../assets/svg/send.svg'
 import pdfIcon from '../assets/svg/pdf.svg'
+import { Link } from 'react-router-dom'
 export default function Linking() {
   return (
     <>
@@ -135,28 +136,27 @@ const Header = () => {
 
             <div className='btns relative flex justify-between gap-3 pt-5'>
               <div className='normal-btn flex flex-wrap gap-3'>
-                <button className='flex w-fit items-center justify-center gap-2 rounded-lg bg-yellow-muddy px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
+                <Link
+                  to={'/pub-viewer'}
+                  className='flex w-fit items-center justify-center gap-2 rounded-lg bg-yellow-muddy px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'
+                >
                   <img src={earthIcon} alt='' />
                   View Current Issue On Pub Site
-                </button>
+                </Link>
 
-                <button className='flex w-fit items-center justify-center gap-2 rounded-lg bg-blue-denim px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
+                <Link
+                  to={'/pub-viewer'}
+                  className='flex w-fit items-center justify-center gap-2 rounded-lg bg-blue-denim px-5 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'
+                >
                   <img src={earthIcon} alt='' />
                   View Archives on Pub Site
-                </button>
+                </Link>
 
                 <button className='flex w-fit items-center justify-center rounded-lg bg-light-smoke px-5 py-2 text-medium font-medium leading-5 text-blue-darkBlue outline-none'>
-                  <img src={earthIcon} alt='' />
-                  View Archives on Pub Site
+                  Submit your Artical
                 </button>
               </div>
 
-              {/* <button className='text absolute right-5 top-4 flex gap-2 rounded-lg border border-light-lilac/20 bg-light-lilac px-5 py-2  outline-none'>
-                <img src={pdfIcon} alt='' />
-                <p className='text-medium font-medium leading-5 text-black/50 text-light-pureWhite lg:flex'>
-                  Full Text Available
-                </p>
-              </button> */}
               <div className='hidden flex-shrink-0 md:block'>
                 <PDFbutton />
               </div>
@@ -231,11 +231,14 @@ const Card = () => {
 
 const PDFbutton = () => {
   return (
-    <button className='text flex flex-shrink-0 gap-2 rounded-lg border border-light-lilac/20 px-5 py-2 outline-none'>
+    <Link
+      to={'/pdf-viewer'}
+      className='text flex flex-shrink-0 gap-2 rounded-lg border border-light-lilac/20 px-5 py-2 outline-none'
+    >
       <img src={pdfIcon} alt='' />
       <p className='text-medium font-medium leading-5 text-black/50 text-light-pureWhite md:hidden lg:flex'>
         Full Text Available
       </p>
-    </button>
+    </Link>
   )
 }

@@ -7,7 +7,10 @@ import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Publication from './pages/Publication'
 import Linking from './pages/Linking'
+import BookChapters from './pages/BookChapters'
 import PDFViewer from './pages/PDFViewer'
+import ShowPdf from './components/ShowPdf'
+import ShowPub from './components/ShowPub'
 function App() {
   return (
     <>
@@ -43,11 +46,35 @@ function App() {
           }
         />
         <Route
-          path='/pdfs'
+          path='/linking/details'
           element={
             <>
               <Breadcrumb title='Go Back to Publications' des={''} />{' '}
-              <PDFViewer />
+              <BookChapters />
+            </>
+          }
+        />
+        <Route
+          path='/pdf-viewer'
+          element={
+            <>
+              <Breadcrumb title='Go Back to Journal' des={''} />{' '}
+              <PDFViewer>
+                {' '}
+                <ShowPdf />{' '}
+              </PDFViewer>
+            </>
+          }
+        />
+        <Route
+          path='/pub-viewer'
+          element={
+            <>
+              <Breadcrumb title='Go Back to Journal' des={''} />{' '}
+              <PDFViewer>
+                {' '}
+                <ShowPub />{' '}
+              </PDFViewer>
             </>
           }
         />
