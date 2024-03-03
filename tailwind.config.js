@@ -77,32 +77,18 @@ export default {
         yellow: {
           muddy: '#BFA800',
         },
-        'navbar-background': 'rgba(105, 105, 105, 0.03)',
-        'navbar-text-color': '#FFFFFF',
-        'navbar-date-color': 'rgba(105, 105, 105, 0.03)',
         'navbar-icon-bg-color': '#01033752',
 
-        'date-color': '#FFF',
-        'date-border': 'rgba(255, 255, 255, 0.10)',
         'date-background': 'rgba(1, 3, 58, 0.32)',
 
         'menu-background': 'var(--colors-gray-50)',
-        'menu-text': '#314155',
+
         'menu-hover-background': '#F8FAFB',
 
         'home-hero-gradient-start': 'rgba(0, 0, 0, 0.59)',
         'home-hero-gradient-end': 'rgba(1, 0, 146, 0.59)',
-        'home-hero-color': '#FFF',
-
-        'search-icon-background': '#3461FF',
 
         'medical-button-background': 'rgba(36, 42, 194, 0)',
-        'medical-button-on-selected-background': '#242AC2',
-
-        'category-background': 'rgba(33, 98, 255, 0.07)',
-        'category-on-selected-background': '#2162FF',
-        'card-hover-background': 'var(--colors-white)',
-        'recently-added-title-text': '#05184A',
       },
 
       fontFamily: {
