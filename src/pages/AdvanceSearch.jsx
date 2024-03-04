@@ -1,5 +1,5 @@
 import Input from '../components/Input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SelectInput from '../components/SelectInput'
 
 import { selectInputOptionValues } from '../utils/data'
@@ -129,6 +129,10 @@ export default function AdvanceSearch() {
       value: 'Japanese',
     },
   ])
+
+  useEffect(() => {
+    document.title = 'DVL - Project | Search'
+  }, [])
 
   const changeHandler = (e, type) => {
     if (type === 'radioField') {
@@ -277,7 +281,7 @@ export default function AdvanceSearch() {
           </div>
 
           <div className='publication-date border-b pb-8 pt-5'>
-            <p className='text-20px my-3 font-bold tracking-[-1px] text-blue-darkBlue underline sm:text-23px'>
+            <p className='my-3 text-20px font-bold tracking-[-1px] text-blue-darkBlue underline sm:text-23px'>
               Publication Date :
             </p>
 
@@ -324,7 +328,7 @@ export default function AdvanceSearch() {
                   </label>
                 </div>
                 <div className='select-date flex w-full items-center space-x-2'>
-                  <div className='select-input text-grey-mirage relative flex flex-grow rounded-full border px-3 py-2 text-medium font-medium leading-6'>
+                  <div className='select-input relative flex flex-grow rounded-full border px-3 py-2 text-medium font-medium leading-6 text-grey-mirage'>
                     <SelectInput
                       items={selectInputOptionValues.selectInputThree}
                     />
@@ -349,7 +353,7 @@ export default function AdvanceSearch() {
                     value={dateValues.from}
                     placeholder={'DD/MM/YY'}
                     className={
-                      'text-grey-mirage border-x-grey-iron rounded-full border px-3 py-2 text-medium font-medium leading-6 outline-none sm:px-5'
+                      'rounded-full border border-x-grey-iron px-3 py-2 text-medium font-medium leading-6 text-grey-mirage outline-none sm:px-5'
                     }
                   />
                 </div>
@@ -364,7 +368,7 @@ export default function AdvanceSearch() {
                     value={dateValues.to}
                     placeholder={'DD/MM/YY'}
                     className={
-                      ' text-grey-mirage border-x-grey-iron rounded-full border px-3 py-2 text-medium font-medium leading-6 outline-none'
+                      ' rounded-full border border-x-grey-iron px-3 py-2 text-medium font-medium leading-6 text-grey-mirage outline-none'
                     }
                   />
                 </div>
@@ -373,7 +377,7 @@ export default function AdvanceSearch() {
           </div>
 
           <div className='select-date border-b border-blue-azul/20 pb-8 pt-5'>
-            <p className='text-20px my-3 font-bold tracking-[-1px] text-blue-darkBlue underline sm:text-23px'>
+            <p className='my-3 text-20px font-bold tracking-[-1px] text-blue-darkBlue underline sm:text-23px'>
               Select Types:
             </p>
             <div className='col-span-full grid gap-3 lg:grid-cols-3 lg:gap-5'>
@@ -398,7 +402,7 @@ export default function AdvanceSearch() {
 
         <div className='right-side col-span-3 hidden flex-col sm:flex'>
           <div className='overflow-hidden rounded-lg border border-blue-darkO2 pb-5'>
-            <div className='title bg-blue-darkO05 flex justify-between p-4'>
+            <div className='title flex justify-between bg-blue-darkO05 p-4'>
               <h2 className='text-23px font-bold tracking-[-1px] text-black'>
                 How To Search
               </h2>

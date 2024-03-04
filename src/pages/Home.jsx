@@ -1,7 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Input from '../components/Input'
-import SelectInput from '../components/SelectInput'
-import { selectInputOptionValues } from '../utils/data'
 
 import homeBackgroundImage from '../assets/images/home-background.png'
 
@@ -18,6 +16,7 @@ import ResourceCard from '../components/HomePageComponent/ResourceCard'
 import CategoryCard from '../components/HomePageComponent/CategoryCard'
 import RecentlyCard from '../components/HomePageComponent/RecentlyCard'
 import MostViewedCard from '../components/HomePageComponent/MostViewedCard'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [homeSearchInput, setHomeSearchInput] = useState('')
@@ -124,6 +123,18 @@ export default function Home() {
         'Artificial Intelligence In Cancer Diagnostics And Therapy: Current Perspectives',
       desc: 'By Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
     },
+    {
+      id: 5,
+      title:
+        'Artificial Intelligence In Cancer Diagnostics And Therapy: Current Perspectives',
+      desc: 'By Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
+    },
+    {
+      id: 6,
+      title:
+        'Artificial Intelligence In Cancer Diagnostics And Therapy: Current Perspectives',
+      desc: 'By Bernd Göde, Silke Holzmüller-Laue, Kerstin Thurow',
+    },
   ])
 
   const [recentlyCardData, setRecentlyCardData] = useState([
@@ -209,6 +220,10 @@ export default function Home() {
     },
   ])
 
+  useEffect(() => {
+    document.title = 'DVL - Project | Home'
+  }, [])
+
   const changeHandler = (e) => {
     setHomeSearchInput(e.target.value)
   }
@@ -233,39 +248,46 @@ export default function Home() {
     <section className='w-full'>
       <section className='hero home-background-image relative flex  w-full flex-col items-center md:justify-center'>
         <div className='mx-[5%] mt-[150px] pb-10  lg:mx-0 lg:pb-0'>
-          <h2 className='font-feature-setting text-center font-dm-sans text-large font-bold leading-normal tracking-normal text-home-hero-color sm:w-auto '>
+          <h2 className='font-feature-setting text-center font-dm-sans text-large font-bold leading-normal tracking-normal text-light-pureWhite sm:w-auto '>
             You have subscribed DVL Medical
           </h2>
-          <p className='text-text font-feature-setting pb-5 text-center font-dm-sans text-[14px] font-[400] leading-8 text-home-hero-color'>
+          <p className='text-text font-feature-setting pb-5 text-center font-dm-sans text-[14px] font-[400] leading-8 text-light-pureWhite'>
             Here in the database you will get each and every journal for any
             subject field you need
           </p>
           <div className='relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-5 md:mx-auto'>
-            <div className='select-input  relative order-last flex h-[42px] w-[127px] flex-shrink-0 rounded-[34px] bg-search-icon-background px-3 py-2 text-white sm:order-first'>
-              <SelectInput items={selectInputOptionValues.selectInputOne} />
-            </div>
-            <Input
-              type='text'
-              name='homeSelectBtn'
-              onChange={changeHandler}
-              value={homeSearchInput}
-              placeholder={'Search Articles,Journals,Videos etc'}
-              className='h-[42px] flex-grow rounded-full border py-2 pl-5 pr-14 outline-none lg:w-[676px]'
-            />
-            <div className='icon absolute right-1 top-1'>
+            <Link
+              to={'/explore'}
+              className='order-last flex h-[42px] w-[127px] items-center justify-center rounded-[34px] border border-white border-opacity-20 bg-blue-clear sm:order-first'
+            >
+              <div className='select-input relative  flex h-8 w-[88px] flex-shrink-0 items-center justify-between gap-3  text-white'>
+                <p>Anywhere</p>
+                <span className='mt-1 rotate-90 scale-y-150'>&gt;</span>
+              </div>
+            </Link>
+            <Link
+              to={'/explore'}
+              className='h-[42px] flex-grow cursor-pointer rounded-full border bg-light-pureWhite py-2 pl-5 pr-14 outline-none lg:w-[676px]'
+            >
+              <p className='text-black opacity-40'>
+                Search Articles,Journals,Videos etc
+              </p>
+            </Link>
+            <div className='icon absolute right-1 top-1 cursor-pointer'>
               {homeSearchInput.length > 0 ? (
-                <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full bg-search-icon-background'>
+                <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full bg-blue-clear'>
                   <img src={searchIcon} alt='' className='object-cover' />
                 </div>
               ) : (
                 <img src={crossIcon} alt='' className='object-contain' />
               )}
-              <button
+              <Link
+                to={'/advanceSearch'}
                 className='
-              font-feature-setting absolute right-4 text-nowrap pt-4 font-dm-sans text-medium font-medium  leading-8 text-home-hero-color underline outline-none'
+              font-feature-setting absolute right-4 z-10 text-nowrap pt-4 font-dm-sans text-medium font-medium  leading-8 text-light-pureWhite underline outline-none'
               >
                 Advance Search
-              </button>
+              </Link>
             </div>
           </div>
         </div>

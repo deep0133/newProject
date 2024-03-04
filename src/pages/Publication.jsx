@@ -31,7 +31,7 @@ import Pagination from '../components/Pagination'
 
 export default function Publication() {
   const [search, setSearch] = useState('')
-  const [selectInput, setSelectInput] = useState('e-Journal')
+  const [selectInput, setSelectInput] = useState('e-Books')
 
   const [mobileFilterCss, setMobileFilterCss] = useState('-translate-x-[110%]')
 
@@ -45,6 +45,10 @@ export default function Publication() {
   const [indexedIn, setIndexedIn] = useState(IndexedIn)
 
   const [topicData, setTopicData] = useState(TopicData)
+
+  useEffect(() => {
+    document.title = 'DVL - Project | Publication'
+  }, [])
 
   const checkBoxHandler = (id, selectionType, items) => {
     const updatedSelectionType = items.map((item) => {
@@ -468,7 +472,7 @@ const CardItem = ({
         </div>
 
         {selectInput === 'Other Resources' && (
-          <div className='btn bg-yellow-muddy w-[193px] rounded-lg border text-center '>
+          <div className='btn w-[193px] rounded-lg border bg-yellow-muddy text-center '>
             <button className='flex w-full items-center justify-center gap-2 py-2 text-medium font-medium leading-5 text-light-pureWhite outline-none'>
               <img src={earthIcon} alt='' />
               View On Pub Site

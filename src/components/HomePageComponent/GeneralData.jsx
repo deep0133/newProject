@@ -24,10 +24,10 @@ const GeneralData = () => {
   const HTML = data.map((item) => {
     return (
       <div key={item.id} className='card flex flex-col gap-1 sm:gap-2'>
-        <h2 className='font-feature-setting font-dm-sans text-semilarge font-bold text-navbar-text-color'>
+        <h2 className='font-feature-setting font-dm-sans text-semilarge font-bold text-light-pureWhite'>
           {item.title}
         </h2>
-        <p className='font-feature-setting font-dm-sans text-medium font-medium leading-normal tracking-[-1px] text-navbar-text-color '>
+        <p className='font-feature-setting font-dm-sans text-medium font-medium leading-normal tracking-[-1px] text-light-pureWhite '>
           {item.desc}
         </p>
       </div>

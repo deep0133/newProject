@@ -4,7 +4,12 @@ import commaseIcon from '../assets/svg/commase.svg'
 import sendIcon from '../assets/svg/send.svg'
 import lockIcon from '../assets/svg/whiteLock.svg'
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 export default function PDFViewer({ children }) {
+  useEffect(() => {
+    document.title = 'DVL - Project | PDF - PUB'
+  }, [])
+
   return (
     <>
       <Header />
@@ -139,7 +144,7 @@ const suggestionData = [
 ]
 
 SuggestionCard.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   title: PropTypes.string,
   desc: PropTypes.string,
 }

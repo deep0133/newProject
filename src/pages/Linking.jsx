@@ -7,7 +7,11 @@ import commaseIcon from '../assets/svg/commase.svg'
 import sendIcon from '../assets/svg/send.svg'
 import pdfIcon from '../assets/svg/pdf.svg'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 export default function Linking() {
+  useEffect(() => {
+    document.title = 'DVL - Project | Linking'
+  }, [])
   return (
     <>
       <Header />

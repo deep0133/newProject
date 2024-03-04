@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CheckBox from '../components/CheckBox'
 import Input from '../components/Input'
 import SelectedFilter from '../components/ExplorePageComponent/SelectedFilter'
@@ -66,6 +66,10 @@ export default function Explore() {
   const [accessKeyData, setAccessKeyData] = useState(AccessKeyData)
 
   const [subjectData, setSubjectData] = useState(SubjectData)
+
+  useEffect(() => {
+    document.title = 'DVL - Project | Explore'
+  }, [])
 
   const checkBoxHandler = (id, selectionType, items) => {
     const updatedSelectionType = items.map((item) => {
@@ -333,6 +337,7 @@ export default function Explore() {
             return (
               <ItemCard
                 key={item.id}
+                link={item.link}
                 badgeColor={item.badgeColor}
                 badgeValue={item.badgeValue}
                 title={item.title}

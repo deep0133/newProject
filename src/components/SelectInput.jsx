@@ -4,7 +4,7 @@ const SelectInput = ({ items, selectChangeHandler }) => {
   return (
     <select
       onChange={selectChangeHandler}
-      className='font-feature-setting flex w-max flex-shrink-0 flex-grow items-center justify-center bg-inherit font-dm-sans text-medium font-medium leading-8 outline-none hover:cursor-pointer'
+      className='font-feature-setting flex w-max flex-shrink-0 flex-grow items-center justify-center gap-2 bg-inherit font-dm-sans text-medium font-medium leading-8 outline-none hover:cursor-pointer'
     >
       {items &&
         items.map((item) => {

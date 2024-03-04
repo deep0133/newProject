@@ -9,6 +9,7 @@ import logoutIcon from '../assets/svg/logout.svg'
 
 import logo from '../assets/images/logo.png'
 import coin from '../assets/images/coin.png'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [menu, setMenu] = useState(false)
@@ -21,13 +22,16 @@ function Navbar() {
     <div className='fixed top-0 z-50 mx-auto flex h-[85px] w-full items-center justify-center bg-black backdrop-blur-[5px] sm:h-[72px]'>
       <div className='responsiveWidth top-0 mx-auto flex justify-between'>
         <div className='left-side flex space-x-5 '>
-          <div className='logo flex items-center border-r-[0.5px] border-white/50 pr-3'>
+          <Link
+            to={'/'}
+            className='logo flex items-center border-r-[0.5px] border-white/50 pr-3'
+          >
             <img
               src={logo}
               className='w-[75px] object-cover p-2 sm:w-[104px] sm:px-0  '
               alt='logo'
             />
-          </div>
+          </Link>
           <div className='all-india-inst flex items-center gap-2 font-dm-sans'>
             <img
               src={coin}
@@ -37,7 +41,7 @@ function Navbar() {
             <p className='hidden max-w-[10rem] text-[13px] text-xs leading-[19px] text-white  sm:block'>
               All India Institute of Medical Science , Nagpur
             </p>
-            <p className='time-date hidden h-[34px] w-[289px] rounded-lg border border-date-border bg-date-background px-3 py-1 text-center text-xSmall leading-6 text-date-color backdrop-blur-[2.5px] lg:block'>
+            <p className='time-date hidden h-[34px] w-[289px] rounded-lg border border-light-whiteO1 bg-date-background px-3 py-1 text-center text-xSmall leading-6 text-light-pureWhite backdrop-blur-[2.5px] lg:block'>
               Trial Period : Dec 13 2023 - Mar 22 2024
             </p>
           </div>
@@ -59,7 +63,7 @@ function Navbar() {
             />
             {menu && <MenuDropDown />}
           </button>
-          <button className='logout hidden h-[34px] w-[98px] items-center justify-center rounded-lg border border-date-border pl-[10px] pr-[16px] font-dm-sans text-xSmall leading-6 text-navbar-text-color backdrop-blur-[2.5px] sm:flex'>
+          <button className='logout hidden h-[34px] w-[98px] items-center justify-center rounded-lg border border-light-whiteO1 pl-[10px] pr-[16px] font-dm-sans text-xSmall leading-6 text-light-pureWhite backdrop-blur-[2.5px] sm:flex'>
             <p className=''>Log Out</p>
             <img src={logoutIcon} className='' />
           </button>
@@ -73,18 +77,22 @@ const menuItem = [
   {
     icon_link: settingIcon,
     title: 'Choose Databases',
+    link: '',
   },
   {
     icon_link: layerIcon,
     title: 'Browse Publications',
+    link: '/publications',
   },
   {
     icon_link: helpCircleIcon,
     title: 'Help and Support',
+    link: '',
   },
   {
     icon_link: logoutIcon,
     title: 'Logout',
+    link: '',
   },
 ]
 
@@ -99,7 +107,7 @@ const MenuDropDown = () => {
             <span className='absolute -bottom-1 right-[2px] h-[10px] w-[10px] rounded-full bg-success-500 '></span>
           </div>
           <div className='name-bio'>
-            <p className='text-start font-inter text-medium font-semibold text-menu-text hover:cursor-pointer'>
+            <p className='text-start font-inter text-medium font-semibold text-blue-bluewood hover:cursor-pointer'>
               AIIMS, Nagpur
             </p>
             <span className='-mt-1 text-medium text-gray-500 hover:cursor-pointer'>
@@ -109,13 +117,14 @@ const MenuDropDown = () => {
         </div>
         {menuItem.map((item, index) => {
           return (
-            <div
+            <Link
+              to={item.link === '' ? '/' : item.link}
               key={index}
               className='flex items-center border-t-[0.5px] bg-menu-background p-3 font-dm-sans text-medium font-medium leading-5 transition-all hover:cursor-pointer hover:bg-menu-hover-background'
             >
               <img src={item.icon_link} className='w-5 object-contain' alt='' />
-              <p className='pl-2 text-menu-text'>{item.title}</p>
-            </div>
+              <p className='pl-2 text-blue-bluewood'>{item.title}</p>
+            </Link>
           )
         })}
       </div>

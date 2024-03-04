@@ -46,11 +46,10 @@ function App() {
           }
         />
         <Route
-          path='/linking/details'
+          path='/explore/:name'
           element={
             <>
-              <Breadcrumb title='Go Back to Publications' des={''} />{' '}
-              <BookChapters />
+              <Breadcrumb title='Go Back' des={''} /> <BookChapters />
             </>
           }
         />
