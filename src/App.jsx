@@ -28,6 +28,14 @@ function App() {
         />
         <Route path='/explore' element={<Explore />} />
         <Route
+          path='/explore/:name'
+          element={
+            <>
+              <Breadcrumb title='Go Back' des={''} /> <BookChapters />
+            </>
+          }
+        />
+        <Route
           path='/publications'
           element={
             <>
@@ -45,14 +53,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path='/explore/:name'
-          element={
-            <>
-              <Breadcrumb title='Go Back' des={''} /> <BookChapters />
-            </>
-          }
-        />
+
         <Route
           path='/pdf-viewer'
           element={

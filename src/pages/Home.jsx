@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import Input from '../components/Input'
-
 import homeBackgroundImage from '../assets/images/home-background.png'
 
 import blueArrowIcon from '../assets/svg/blue_arrow.svg'
@@ -19,8 +17,6 @@ import MostViewedCard from '../components/HomePageComponent/MostViewedCard'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
-  const [homeSearchInput, setHomeSearchInput] = useState('')
-
   const [medicalData, setMedicalData] = useState([
     {
       id: 1,
@@ -224,10 +220,6 @@ export default function Home() {
     document.title = 'DVL - Project | Home'
   }, [])
 
-  const changeHandler = (e) => {
-    setHomeSearchInput(e.target.value)
-  }
-
   const selectItemHandler = (id, dataType) => {
     const dataArr = dataType === 'medical' ? medicalData : categoryData
     const updatedData = dataArr.map((item) => {
@@ -273,14 +265,11 @@ export default function Home() {
                 Search Articles,Journals,Videos etc
               </p>
             </Link>
-            <div className='icon absolute right-1 top-1 cursor-pointer'>
-              {homeSearchInput.length > 0 ? (
-                <div className='flex h-[35px] w-[35px] items-center justify-center rounded-full bg-blue-clear'>
-                  <img src={searchIcon} alt='' className='object-cover' />
-                </div>
-              ) : (
-                <img src={crossIcon} alt='' className='object-contain' />
-              )}
+            <Link
+              to={'/explore'}
+              className='icon absolute right-1 top-1 cursor-pointer'
+            >
+              <img src={crossIcon} alt='' className='object-contain' />
               <Link
                 to={'/advanceSearch'}
                 className='
@@ -288,7 +277,7 @@ export default function Home() {
               >
                 Advance Search
               </Link>
-            </div>
+            </Link>
           </div>
         </div>
         <div className='responsiveWidth trust-us sticky mx-auto grid gap-3 py-10 sm:grid-cols-2 sm:gap-5 sm:pt-20 lg:grid-cols-4 lg:pt-24 '>

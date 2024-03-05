@@ -40,11 +40,13 @@ export default {
           deepCove: '#05184a',
           tealish: '#0A1847',
           persianBlue: '#242AC2',
+          sapphire: '#252ABA',
           darkBlue: '#000360',
           darkBlue2: '#00035C',
           darkBlue3: '#04075E',
           ultramarineBlue: 'rgba(76, 112, 255, 0.28)',
           ultramarineBlueO1: 'rgba(42, 103, 255, 0.1)',
+          ultramarineBlueO2: 'rgba(52.06, 96.71, 255, 0.20)',
         },
         success: {
           500: '#12B76A',
