@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
 import homeBackgroundImage from '../assets/images/home-background.png'
 
 import blueArrowIcon from '../assets/svg/blue_arrow.svg'
-import searchIcon from '../assets/svg/search-normal.svg'
 import crossIcon from '../assets/svg/cross.svg'
 import starIcon from '../assets/svg/star.svg'
 import downArrowIcon from '../assets/svg/downArrow.svg'
@@ -14,87 +16,20 @@ import ResourceCard from '../components/HomePageComponent/ResourceCard'
 import CategoryCard from '../components/HomePageComponent/CategoryCard'
 import RecentlyCard from '../components/HomePageComponent/RecentlyCard'
 import MostViewedCard from '../components/HomePageComponent/MostViewedCard'
-import { Link } from 'react-router-dom'
+
+import { Subjects } from '../redux/Action/DataAction'
 
 export default function Home() {
-  const [medicalData, setMedicalData] = useState([
-    {
-      id: 1,
-      value: 'Medical',
-      selected: false,
-    },
-    {
-      id: 2,
-      value: 'Pharmacy',
-      selected: false,
-    },
-    {
-      id: 3,
-      value: 'Nursing',
-      selected: true,
-    },
-    {
-      id: 4,
-      value: 'Dental',
-      selected: false,
-    },
-    {
-      id: 5,
-      value: 'Science',
-      selected: false,
-    },
-  ])
+  const { masterData } = useSelector((state) => state.masterData)
+  const dispatch = useDispatch()
 
-  const [categoryData, setCategoryData] = useState([
-    {
-      id: 1,
-      value: 'Cardiology',
-      selected: false,
-      number: 44,
-    },
-    {
-      id: 2,
-      value: 'Community Medicine',
-      selected: true,
-      number: 555,
-    },
-    {
-      id: 3,
-      value: 'Cavid19',
-      selected: false,
-      number: 22,
-    },
-    {
-      id: 4,
-      value: 'Emergency Medicine',
-      number: 22,
-      selected: false,
-    },
-    {
-      id: 5,
-      value: 'Pharmacology',
-      selected: false,
-      number: 44,
-    },
-    {
-      id: 6,
-      value: 'Ophthalmology',
-      selected: false,
-      number: 555,
-    },
-    {
-      id: 7,
-      value: 'Surgery',
-      selected: false,
-      number: 22,
-    },
-    {
-      id: 8,
-      value: 'Surgery',
-      selected: false,
-      number: 555,
-    },
-  ])
+  useEffect(() => {
+    dispatch(Subjects())
+  }, [dispatch])
+
+  const [subjects, setSubjects] = useState([])
+
+  const [categoryData, setCategoryData] = useState([])
 
   const [resourceCardData, setResourceCardData] = useState([
     {
@@ -220,20 +155,75 @@ export default function Home() {
     document.title = 'DVL - Project | Home'
   }, [])
 
-  const selectItemHandler = (id, dataType) => {
-    const dataArr = dataType === 'medical' ? medicalData : categoryData
-    const updatedData = dataArr.map((item) => {
-      if (item.selected === true || item.id === id) {
-        item.selected = !item.selected
+  useEffect(() => {
+    console.log('useEffect masterdarta : ', masterData)
+    const addData = () => {
+      if (
+        masterData &&
+        masterData.data.SubjectList &&
+        Array.isArray(masterData.data.SubjectList)
+      ) {
+        const updatedData = masterData.data.SubjectList.map((item, index) => {
+          if (index === 0) return { ...item, selected: true }
+          return { ...item, selected: false }
+        })
+        setSubjects(updatedData)
+      }
+    }
+
+    const categoryAdd = () => {
+      if (
+        masterData &&
+        masterData.data.SubSubjectList &&
+        Array.isArray(masterData.data.SubSubjectList)
+      ) {
+        const updatedData = masterData.data.SubSubjectList.map((item) => {
+          if (item.SubjectPk === 1) return { ...item, selected: true }
+          return { ...item, selected: false }
+        })
+        setCategoryData(updatedData)
+      }
+    }
+
+    addData()
+    categoryAdd()
+  }, [masterData])
+
+  const addCategoryData = (id) => {
+    if (Array.isArray(categoryData)) {
+      const updatedData = categoryData.map((item) => ({
+        ...item,
+        selected: item.Pk === id ? !item.selected : false,
+      }))
+      setCategoryData(updatedData)
+    }
+  }
+
+  const selectItemHandler = (id) => {
+    const updatedData = subjects.map((item) => {
+      if (item.selected === true || item.PK === id) {
+        return { ...item, selected: !item.selected }
       }
       return item
     })
 
-    if (dataType === 'category') {
-      setCategoryData(updatedData)
-    } else if (dataType === 'medical') {
-      setMedicalData(updatedData)
+    let updateCategoryData = []
+    if (
+      masterData &&
+      masterData.data.SubSubjectList &&
+      Array.isArray(masterData.data.SubSubjectList)
+    ) {
+      updateCategoryData = masterData.data.SubSubjectList.map((item) => {
+        if (item.SubjectPk === id) return { ...item, selected: false }
+        return item
+      })
     }
+
+    const updatedCategory = updateCategoryData.filter(
+      (val) => val.SubjectPk === id
+    )
+    setSubjects(updatedData)
+    setCategoryData(updatedCategory)
   }
 
   return (
@@ -304,7 +294,7 @@ export default function Home() {
           />
           <div className='no-scrollbar mt-5 flex w-[137px] gap-2 overflow-auto scroll-smooth lg:w-fit '>
             <MedicalCard
-              medicalData={medicalData}
+              subjects={subjects}
               onClickHandler={selectItemHandler}
             />
           </div>
@@ -328,10 +318,12 @@ export default function Home() {
             </button>
           </div>
           <div className='left col-span-full space-y-2 md:col-span-3'>
-            <CategoryCard
-              categoryData={categoryData}
-              onClickHandler={selectItemHandler}
-            />
+            <div className='recently-container no-scrollbar max-h-[470px] space-y-4 overflow-y-auto overflow-x-hidden '>
+              <CategoryCard
+                categoryData={categoryData}
+                onClickHandler={addCategoryData}
+              />
+            </div>
           </div>
           <div className='col-span-full flex md:col-span-1'>
             <p className=' mx-auto my-5 w-full border border-dashed border-black/50 md:my-0 md:h-full md:w-0'></p>

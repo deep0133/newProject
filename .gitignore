@@ -12,7 +12,13 @@ dist
 dist-ssr
 *.local
 
+.env
+
 style.md
+
+# added by developer
+server
+src/utils/masterData.json
 
 # Editor directories and files
 .vscode/*

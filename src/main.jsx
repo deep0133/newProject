@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import StateContext from './context/StateContext.jsx'
+import store from './redux/Store.jsx'
+import { Provider } from 'react-redux'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <StateContext>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StateContext>
+    </Provider>
   </React.StrictMode>
 )
